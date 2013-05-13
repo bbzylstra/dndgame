@@ -1,47 +1,49 @@
 name = 'unknown'
 race = 'u'
 cclass = 'u'
-hp = '50'
-mana = '25'
-stamina = '25'
-str = '5'
-agl = '5'
-int = '5'
-cour = '5'
-dex = '5'
-conc = '5'
-item = '5'
+hp = 50
+mana = 25
+stamina = 25
+stre = 5
+agl = 5
+inte = 5
+cour = 5
+dex = 5
+conc = 5
+item = 5
 name = raw_input('Enter name.\n')
 race = raw_input('Enter race.(of "human", "elf", "drow", "dwarf", "halfling" or "draconian"\n')
 cclass = raw_input('Enter class.\n')
-if race == 'human'
+race.lower()
+cclass.lower()
+if race == 'human':
     hp = hp + 5
     mana = mana
     stamina = stamina + 15
-    str = str + 1
+    stre = stre + 1
     agl = agl
-    int = int
+    inte = inte
     cour = cour + 1
     dex = dex
     conc = conc
-if race == 'elf'
+if race == 'elf':
     hp = hp - 5
     mana = mana + 10
     stamina = stamina
-    str = str - 1
+    stre = stre - 1
     agl = agl + 1
-    int = int + 2
+    inte = inte + 2
     cour = cour - 1
     dex = dex + 2
     conc = conc + 1
-if race == 'drow'
+if race == 'drow':
     hp = hp - 5
     mana = mana + 10
     stamina = stamina
-    str = str - 1
+    stre = stre - 1
     agl = agl + 2
-    int = int + 1
+    inte = inte + 1
     cour = cour
     dex = dex + 1
     conc = conc + 1
-print hp,',',mana,',',stamina
+print hp,',',mana,',',stamina,',',stre,',',agl,',',inte,',',cour,',',dex,',',conc,'.',
