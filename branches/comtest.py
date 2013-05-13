@@ -1,10 +1,12 @@
 import random
 attacker = '?'
 defender = '?'
-atkdmgtype = '?'
-atkdmgmod = '?'
-defdmgtype = '?'
-defdmgmod = '?'
+atkdmgtype = 1
+atkdmgmod = 1
+defdmgtype = 1
+defdmgmod = 1
+randmult = random.randint(3,6)
+randmult = int(randmult)
 attacker = raw_input('The name of the offensive combatant: ')
 defender = raw_input('\nThe name of the defensive combatant: ')
 f=open(attacker,'r')
@@ -35,19 +37,19 @@ defcour = f.readline()
 defdex = f.readline()
 defconc = f.readline()
 f.close()
-atkstre=int(atkstre)
-atkagl=int(atkagl)
-atkinte=int(atkinte)
-atkcour=int(atkcour)
-atkdex=int(atkdex)
-atkconc=int(atkconc)
-defhp=int(defhp)
-defstre=int(defstre)
-defagl=int(defagl)
-definte=int(definte)
-defcour=int(defcour)
-defdex=int(defdex)
-defconc=int(defconc)
+atkstre = int(atkstre)
+atkagl = int(atkagl)
+atkinte = int(atkinte)
+atkcour = int(atkcour)
+atkdex = int(atkdex)
+atkconc = int(atkconc)
+defhp = int(defhp)
+defstre = int(defstre)
+defagl = int(defagl)
+definte = int(definte)
+defcour = int(defcour)
+defdex = int(defdex)
+defconc = int(defconc)
 if atkclass == 'swordsman':
     atkdmgtype = 'melee'
 elif atkclass == 'berserker':
@@ -106,11 +108,11 @@ while True:
         print '\nThe defending', defclass, 'dodged completely!\n'
         break
     elif 3 * defagl >= dodge:
-        atkdmg = atkdmgmod * random.randint(3, 6) / 2
-        print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'!\n'
+        atkdmg = atkdmgmod * randmult
+        print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'damage!\n'
         break
     else:
-        atkdmg = atkdmgmod * random.randint(3, 6)
+        atkdmg = atkdmgmod * randmult
         defhpleft = defhp - atkdmg
         print '\nThe defending', defclass, 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
         break
