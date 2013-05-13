@@ -19,7 +19,7 @@ while True:
 
     if race == 'human':
         hp = hp + 5
-        mana = mana
+        mana = mana + 5
         stamina = stamina + 15
         stre = stre + 1
         agl = agl
@@ -60,6 +60,7 @@ while True:
         cour = cour + 1
         dex = dex
         conc = conc
+        profaxes = 'true'
         break
     elif race == 'halfling':
         hp = hp - 10
@@ -92,7 +93,7 @@ while True:
     cclass = cclass.lower()
     if cclass == 'swordsman':
         hp = hp + 20
-        mana -= 10
+        mana = mana - 10
         stamina = stamina + 5
         stre = stre + 2
         agl = agl + 1
@@ -100,6 +101,10 @@ while True:
         cour = cour + 1
         dex = dex
         conc = conc - 1
+        profblades = 'true'
+        profblunt = 'true'
+        profsmall = 'true'
+        profsmshields = 'true'
         break
     elif cclass == 'berserker':
         hp = hp + 10
@@ -111,28 +116,38 @@ while True:
         cour = cour + 2
         dex = dex - 1
         conc = conc - 1
+        profblades = 'true'
+        profblunt = 'true'
+        prof2handed = 'true'
+        dualwield = 'true'
         break
     elif cclass == 'knight':
         hp = hp + 30
         mana = mana
         stamina = stamina
-        stre = stre + 3
+        stre = stre + 4
         agl = agl - 1
         inte = inte
         cour = cour + 2
         dex = dex - 2
         conc = conc - 1
+        profblades = 'true'
+        profblunt = 'true'
+        prof2handed = 'true'
+        profkiteshield = 'true'
         break
     elif cclass == 'scout':
         hp = hp
         mana = mana
         stamina = stamina + 10
         stre = stre + 3
-        agl = agl
-        inte = inte - 1
-        cour = cour
+        agl = agl + 2
+        inte = inte + 1
+        cour = cour - 1
         dex = dex + 1
         conc = conc - 1
+        profsmall = 'true'
+        smalldualwield = 'true'
         break
     elif cclass == 'hunter':
         hp = hp
@@ -144,9 +159,12 @@ while True:
         cour = cour - 1
         dex = dex + 2
         conc = conc
+        profbows = 'true'
+        profblades = 'true'
+        profblunt = 'true'
         break
     elif cclass == 'ranger':
-        hp = hp - 15
+        hp = hp - 10
         mana = mana
         stamina = stamina + 30
         stre = stre + 1
@@ -155,17 +173,25 @@ while True:
         cour = cour - 1
         dex = dex + 2
         conc = conc + 1
+        profsmall = 'true'
+        profbows = 'true'
         break
     elif cclass == 'skirmisher':
        hp = hp + 5
        mana = mana
        stamina = stamina + 15
        stre = stre
-       agl = agl + 1
+       agl = agl + 2
        inte = inte
        cour = cour - 1
        dex = dex + 1
        conc = conc
+       profsshields = 'true'
+       profblades = 'true'
+       profblunt = 'true'
+       profspears = 'true'
+       profjavelins = 'true'
+       profthrowables = 'true'
        break
     elif cclass == 'priest':
        hp = hp - 5
@@ -177,9 +203,11 @@ while True:
        cour = cour - 1
        dex = dex - 1
        conc = conc + 2
+       profstaff = 'true'
+       profhealing = 'true'
        break
     elif cclass == 'sorcerer':
-        hp = hp + 5
+        hp = hp
         mana = mana + 30
         stamina = stamina - 10
         stre = stre - 3
@@ -188,9 +216,12 @@ while True:
         cour = cour - 1
         dex = dex + 1
         conc = conc + 3
+        profstaff = 'true'
+        profsmall = 'true'
+        profdarkmajyyks = 'true'
         break
     elif cclass == 'mage':
-        hp = hp
+        hp = hp + 5
         mana = mana + 30
         stamina = stamina
         stre = stre - 1
@@ -199,12 +230,13 @@ while True:
         cour = cour
         dex = dex
         conc = conc + 2
+        profstaff = 'true'
         break
     else:
         print "Not understood, please try again "
 
 print 'name =',name, '\nhp =',hp, '\nmana =',mana, '\nstamina =',stamina, '\nstrength =',stre, '\nagility =',agl, '\nintelligence =',inte, '\ncourage =',cour, '\ndexterity =',dex, '\nconcentration =',conc,
-f=open(str(name),'w')
+f=open("stats",'w')
 f.write('name: ' + name)
 f.write('\nrace: ' + race)
 f.write('\ncclass: ' + cclass)
