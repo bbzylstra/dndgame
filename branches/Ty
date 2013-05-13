@@ -46,4 +46,34 @@ if race == 'drow':
     cour = cour
     dex = dex + 1
     conc = conc + 1
+if race == 'dwarf':
+    hp = hp + 10
+    mana = mana - 5
+    stamina = stamina + 10
+    stre = stre + 2
+    agl = agl
+    inte = inte - 1
+    cour = cour + 1
+    dex = dex
+    conc = conc
+if race == 'halfling':
+    hp = hp - 10
+    mana = mana
+    stamina = stamina
+    stre = stre - 1
+    agl = agl + 1
+    inte = inte
+    cour = cour - 1
+    dex = dex + 1
+    conc = conc
+if race == 'draconian':
+    hp = hp + 15
+    mana = mana - 10
+    stamina = stamina -5
+    stre = stre + 1
+    agl = agl
+    inte = inte - 1
+    cour = cour
+    dex = dex - 1
+    conc = conc + 1
 print hp,',',mana,',',stamina,',',stre,',',agl,',',inte,',',cour,',',dex,',',conc,'.',
