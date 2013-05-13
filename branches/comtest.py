@@ -35,6 +35,19 @@ defcour = f.readline()
 defdex = f.readline()
 defconc = f.readline()
 f.close()
+atkstre=int(atkstre)
+atkagl=int(atkagl)
+atkinte=int(atkinte)
+atkcour=int(atkcour)
+atkdex=int(atkdex)
+atkconc=int(atkconc)
+defhp=int(defhp)
+defstre=int(defstre)
+defagl=int(defagl)
+definte=int(definte)
+defcour=int(defcour)
+defdex=int(defdex)
+defconc=int(defconc)
 if atkclass == 'swordsman':
     atkdmgtype = 'melee'
 elif atkclass == 'berserker':
@@ -88,11 +101,16 @@ elif defdmgtype == 'ranged':
 elif defdmgtype == 'magic':
     defdmgmod = definte
 while True:
-    dodge = random.randrange(1,50)
+    dodge = random.randrange(0,51,1)
     if defagl >= dodge:
         print '\nThe defending', defclass, 'dodged completely!\n'
         break
     elif 3 * defagl >= dodge:
-        atkdmg = atkmod * random.randrange(3,6)
+        atkdmg = atkdmgmod * random.randrange(3,6,1) / 2
         print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'!\n'
+        break
+    else:
+        atkdmg = atkdmgmod * random.randrange(3,6,1)
+        defhpleft = defhp - atkdmg
+        print '\nThe defending', defclass, 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
         break
