@@ -236,7 +236,7 @@ while True:
         print "Not understood, please try again "
 
 print 'name =',name, '\nhp =',hp, '\nmana =',mana, '\nstamina =',stamina, '\nstrength =',stre, '\nagility =',agl, '\nintelligence =',inte, '\ncourage =',cour, '\ndexterity =',dex, '\nconcentration =',conc,
-f=open("stats",'w')
+f=open(name,'w')
 f.write('name: ' + name)
 f.write('\nrace: ' + race)
 f.write('\ncclass: ' + cclass)
