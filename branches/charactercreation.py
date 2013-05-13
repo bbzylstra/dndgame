@@ -176,4 +176,4 @@ if cclass == 'mage':
     cour = cour
     dex = dex
     conc = conc + 2
-print 'hp =',hp, '\n mana =',mana, '\n stamina =',stamina, '\n  strength =',stre, '\n agility =',agl, '\n intelligence =',inte, '\n courage =',cour, '\n dexterity =',dex, '\n concentration =',conc,
+print 'hp =',hp, '\n mana =',mana, '\n stamina =',stamina, '\n strength =',stre, '\n agility =',agl, '\n intelligence =',inte, '\n courage =',cour, '\n dexterity =',dex, '\n concentration =',conc,
