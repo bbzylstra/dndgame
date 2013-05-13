@@ -177,3 +177,13 @@ if cclass == 'mage':
     dex = dex
     conc = conc + 2
 print 'hp =',hp, '\nmana =',mana, '\nstamina =',stamina, '\nstrength =',stre, '\nagility =',agl, '\nintelligence =',inte, '\ncourage =',cour, '\ndexterity =',dex, '\nconcentration =',conc,
+f=open("stats",'w')
+f.write(str(hp))
+f.write(str(mana))
+f.write(str(stre))
+f.write(str(agl))
+f.write(str(inte))
+f.write(str(cour))
+f.write(str(dex))
+f.write(str(conc))
+f.close()
