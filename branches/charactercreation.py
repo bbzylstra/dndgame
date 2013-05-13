@@ -60,7 +60,7 @@ while True:
         cour = cour + 1
         dex = dex
         conc = conc
-        profaxes = 'true'
+        profaxes = True
         break
     elif race == 'halfling':
         hp = hp - 10
@@ -101,10 +101,10 @@ while True:
         cour = cour + 1
         dex = dex
         conc = conc - 1
-        profblades = 'true'
-        profblunt = 'true'
-        profsmall = 'true'
-        profsmshields = 'true'
+        profblades = True
+        profblunt = True
+        profsmall = True
+        profsmshields = True
         break
     elif cclass == 'berserker':
         hp = hp + 10
@@ -116,10 +116,10 @@ while True:
         cour = cour + 2
         dex = dex - 1
         conc = conc - 1
-        profblades = 'true'
-        profblunt = 'true'
-        prof2handed = 'true'
-        dualwield = 'true'
+        profblades = True
+        profblunt = True
+        prof2handed = True
+        dualwield = True
         break
     elif cclass == 'knight':
         hp = hp + 30
@@ -131,10 +131,10 @@ while True:
         cour = cour + 2
         dex = dex - 2
         conc = conc - 1
-        profblades = 'true'
-        profblunt = 'true'
-        prof2handed = 'true'
-        profkiteshield = 'true'
+        profblades = True
+        profblunt = True
+        prof2handed = True
+        profkiteshield = True
         break
     elif cclass == 'scout':
         hp = hp
@@ -146,8 +146,8 @@ while True:
         cour = cour - 1
         dex = dex + 1
         conc = conc - 1
-        profsmall = 'true'
-        smalldualwield = 'true'
+        profsmall = True
+        smalldualwield = True
         break
     elif cclass == 'hunter':
         hp = hp
@@ -159,9 +159,9 @@ while True:
         cour = cour - 1
         dex = dex + 2
         conc = conc
-        profbows = 'true'
-        profblades = 'true'
-        profblunt = 'true'
+        profbows = True
+        profblades = True
+        profblunt = True
         break
     elif cclass == 'ranger':
         hp = hp - 10
@@ -173,8 +173,8 @@ while True:
         cour = cour - 1
         dex = dex + 2
         conc = conc + 1
-        profsmall = 'true'
-        profbows = 'true'
+        profsmall = True
+        profbows = True
         break
     elif cclass == 'skirmisher':
         hp = hp + 5
@@ -186,12 +186,12 @@ while True:
         cour = cour - 1
         dex = dex + 1
         conc = conc
-        profsshields = 'true'
-        profblades = 'true'
-        profblunt = 'true'
-        profspears = 'true'
-        profjavelins = 'true'
-        profthrowables = 'true'
+        profsshields = True
+        profblades = True
+        profblunt = True
+        profspears = True
+        profjavelins = True
+        profthrowables = True
         break
     elif cclass == 'priest':
         hp = hp - 5
@@ -203,8 +203,8 @@ while True:
         cour = cour - 1
         dex = dex - 1
         conc = conc + 2
-        profstaff = 'true'
-        profhealing = 'true'
+        profstaff = True
+        profhealing = True
         break
     elif cclass == 'sorcerer':
         hp = hp
@@ -216,9 +216,9 @@ while True:
         cour = cour - 1
         dex = dex + 1
         conc = conc + 3
-        profstaff = 'true'
-        profsmall = 'true'
-        profdarkmajyyks = 'true'
+        profstaff = True
+        profsmall = True
+        profdarkmajyyks = True
         break
     elif cclass == 'mage':
         hp = hp + 5
@@ -230,7 +230,7 @@ while True:
         cour = cour
         dex = dex
         conc = conc + 2
-        profstaff = 'true'
+        profstaff = True
         break
     else:
         print "Not understood, please try again "
