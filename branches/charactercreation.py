@@ -11,6 +11,22 @@ cour = 5 #Base Courage for all Chars
 dex = 5 #Base Dexterity for all Chars
 conc = 5 #Base Concentration for all Chars
 item = 'u' #Player's Weapon of Choice
+profblades = False
+profblunt = False
+profsmall = False
+profsmshields = False
+prof2handed = False
+dualwield = False
+profkiteshield = False
+smalldualwield = False
+profbows = False
+profsshields = False
+profspears = False
+profjavelins = False
+profthrowables = False
+profstaff = False
+profhealing = False
+profdarkmajyyks = False
 name = raw_input("Enter your character's name: ")
 
 while True:
