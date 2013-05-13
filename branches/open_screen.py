@@ -3,8 +3,6 @@ import pygame,sys,os
 pygame.init()
 screen = pygame.display.set_mode((640, 400))
 running =True
-linecolor = 255, 255, 255
-x = y = 0
 bgcolor = 0, 0, 0
 LEFT=1
 clock = pygame.time.Clock()
