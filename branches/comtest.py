@@ -96,6 +96,7 @@ elif defclass == 'sorcerer':
     defdmgtype = 'magic'
 elif defclass == 'mage':
     defdmgtype = 'magic'
+    #Now set dmg type(int)
 if defdmgtype == 'melee':
     defdmgmod = defstre
 elif defdmgtype == 'ranged':
