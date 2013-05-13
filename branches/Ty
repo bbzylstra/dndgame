@@ -12,8 +12,8 @@ dex = 5
 conc = 5
 item = 5
 name = raw_input('Enter name.\n')
-race = raw_input('Enter race.(of "human", "elf", "drow", "dwarf", "halfling" or "draconian"\n')
-cclass = raw_input('Enter class.\n')
+race = raw_input('Enter race.\n(choose "human", "elf", "drow", "dwarf", "halfling" or "draconian")\n')
+cclass = raw_input('Enter class.\n(choose "swordsman", "berserker", "knight", "scout", "hunter", "ranger", "skirmisher", "priest", "sorcerer", or "mage")\n')
 race.lower()
 cclass.lower()
 if race == 'human':
