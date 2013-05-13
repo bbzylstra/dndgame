@@ -11,9 +11,9 @@ cour = 5 #Base Courage for all Chars
 dex = 5 #Base Dexterity for all Chars
 conc = 5 #Base Concentration for all Chars
 item = 'u' #Player's Weapon of Choice
-name = raw_input("Enter your character's name:\n")
-race = raw_input('Enter race.\n(Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian)\n')
-cclass = raw_input('Enter class.\n(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage)\n')
+name = raw_input("Enter your character's name: ")
+race = raw_input('\nEnter race.\n(Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian)\n: ')
+cclass = raw_input('\nEnter class.\n(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage)\n:')
 race = race.lower()
 cclass = cclass.lower()
 if race == 'human':
@@ -140,7 +140,7 @@ if cclass == 'skirmisher':
     hp = hp + 5
     mana = mana
     stamina = stamina + 15
-    stre = stre 
+    stre = stre
     agl = agl + 1
     inte = inte
     cour = cour - 1
@@ -167,7 +167,7 @@ if cclass == 'sorcerer':
     dex = dex + 1
     conc = conc + 3
 if cclass == 'mage':
-    hp = hp 
+    hp = hp
     mana = mana + 30
     stamina = stamina
     stre = stre - 1
