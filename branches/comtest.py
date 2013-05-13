@@ -1,5 +1,10 @@
+import random
 attacker = '?'
 defender = '?'
+atkdmgtype = '?'
+atkdmgmod = '?'
+defdmgtype = '?'
+defdmgmod = '?'
 attacker = raw_input('The name of the offensive combatant: ')
 defender = raw_input('\nThe name of the defensive combatant: ')
 f=open(attacker,'r')
@@ -82,3 +87,12 @@ elif defdmgtype == 'ranged':
     defdmgmod = defagl
 elif defdmgtype == 'magic':
     defdmgmod = definte
+while True:
+    dodge = random.randrange(1,50)
+    if defagl >= dodge:
+        print '\nThe defending', defclass, 'dodged completely!\n'
+        break
+    elif 3 * defagl >= dodge:
+        atkdmg = atkmod * random.randrange(3,6)
+        print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'!\n'
+        break
