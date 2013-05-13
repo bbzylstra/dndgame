@@ -106,11 +106,11 @@ while True:
         print '\nThe defending', defclass, 'dodged completely!\n'
         break
     elif 3 * defagl >= dodge:
-        atkdmg = atkdmgmod * random.randrange(3,6,1) / 2
+        atkdmg = atkdmgmod * random.randint(3, 6) / 2
         print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'!\n'
         break
     else:
-        atkdmg = atkdmgmod * random.randrange(3,6,1)
+        atkdmg = atkdmgmod * random.randint(3, 6)
         defhpleft = defhp - atkdmg
         print '\nThe defending', defclass, 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
         break
