@@ -1,9 +1,9 @@
-name = 'unknown'
-race = 'u'
-cclass = 'u'
-hp = 50
-mana = 25
-stamina = 25
+name = 'unknown' #Variable for Player Name
+race = 'u' #Variable for Race of Player
+cclass = 'u' #Variable for the Class of Player Character
+hp = 50 #Base Health for All Chars
+mana = 25 #Base Mana for all Chars
+stamina = 25 #Base Stamina for Chars
 stre = 5
 agl = 5
 inte = 5
