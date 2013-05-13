@@ -131,7 +131,7 @@ while True:
         agl = agl
         inte = inte - 1
         cour = cour
-        dex+=1
+        dex = dex + 1
         conc = conc - 1
         break
     elif cclass == 'hunter':
