@@ -177,35 +177,35 @@ while True:
         profbows = 'true'
         break
     elif cclass == 'skirmisher':
-       hp = hp + 5
-       mana = mana
-       stamina = stamina + 15
-       stre = stre
-       agl = agl + 2
-       inte = inte
-       cour = cour - 1
-       dex = dex + 1
-       conc = conc
-       profsshields = 'true'
-       profblades = 'true'
-       profblunt = 'true'
-       profspears = 'true'
-       profjavelins = 'true'
-       profthrowables = 'true'
-       break
+        hp = hp + 5
+        mana = mana
+        stamina = stamina + 15
+        stre = stre
+        agl = agl + 2
+        inte = inte
+        cour = cour - 1
+        dex = dex + 1
+        conc = conc
+        profsshields = 'true'
+        profblades = 'true'
+        profblunt = 'true'
+        profspears = 'true'
+        profjavelins = 'true'
+        profthrowables = 'true'
+        break
     elif cclass == 'priest':
-       hp = hp - 5
-       mana = mana + 20
-       stamina = stamina - 5
-       stre = stre - 2
-       agl = agl - 1
-       inte = inte + 3
-       cour = cour - 1
-       dex = dex - 1
-       conc = conc + 2
-       profstaff = 'true'
-       profhealing = 'true'
-       break
+        hp = hp - 5
+        mana = mana + 20
+        stamina = stamina - 5
+        stre = stre - 2
+        agl = agl - 1
+        inte = inte + 3
+        cour = cour - 1
+        dex = dex - 1
+        conc = conc + 2
+        profstaff = 'true'
+        profhealing = 'true'
+        break
     elif cclass == 'sorcerer':
         hp = hp
         mana = mana + 30
@@ -235,7 +235,17 @@ while True:
     else:
         print "Not understood, please try again "
 
-print 'name =',name, '\nhp =',hp, '\nmana =',mana, '\nstamina =',stamina, '\nstrength =',stre, '\nagility =',agl, '\nintelligence =',inte, '\ncourage =',cour, '\ndexterity =',dex, '\nconcentration =',conc,
+print 'name =',name
+print '\nhp =',hp
+print '\nmana =',mana
+print '\nstamina =',stamina
+print '\nstrength =',stre
+print '\nagility =',agl
+print '\nintelligence =',inte
+print '\ncourage =',cour
+print '\ndexterity =',dex
+print '\nconcentration =',conc
+
 f=open(name,'w')
 f.write('name: ' + name)
 f.write('\nrace: ' + race)
