@@ -50,66 +50,47 @@ definte = int(definte)
 defcour = int(defcour)
 defdex = int(defdex)
 defconc = int(defconc)
-if atkclass == 'swordsman':
+
+if atkclass == 'scout' or 'melee' or 'berserker' or 'swordsman':
     atkdmgtype = 'melee'
-elif atkclass == 'berserker':
-    atkdmgtype = 'melee'
-elif atkclass == 'knight':
-    atkdmgtype = 'melee'
-elif atkclass == 'scout':
-    atkdmgtype = 'melee'
-elif atkclass == 'hunter':
+
+elif atkclass == 'skirmisher' or 'ranger' or 'hunter':
     atkdmgtype = 'ranged'
-elif atkclass == 'ranger':
-    atkdmgtype = 'ranged'
-elif atkclass == 'skirmisher':
-    atkdmgtype = 'ranged'
-elif atkclass == 'priest':
+
+elif atkclass == 'mage' or 'sorcerer' or 'priest':
     atkdmgtype = 'magic'
-elif atkclass == 'sorcerer':
-    atkdmgtype = 'magic'
-elif atkclass == 'mage':
-    atkdmgtype = 'magic'
+
 if atkdmgtype == 'melee':
     atkdmgmod = atkstre
 elif atkdmgtype == 'ranged':
     atkdmgmod = atkagl
 elif atkdmgtype == 'magic':
     atkdmgmod = atkinte
-if defclass == 'swordsman':
+
+
+if defclass == 'scout' or 'melee' or 'berserker' or 'swordsman':
     defdmgtype = 'melee'
-elif defclass == 'berserker':
-    defdmgtype = 'melee'
-elif defclass == 'knight':
-    defdmgtype = 'melee'
-elif defclass == 'scout':
-    defdmgtype = 'melee'
-elif defclass == 'hunter':
+
+elif defclass == 'skirmisher' or 'ranger' or 'hunter':
     defdmgtype = 'ranged'
-elif defclass == 'ranger':
-    defdmgtype = 'ranged'
-elif defclass == 'skirmisher':
-    defdmgtype = 'ranged'
-elif defclass == 'priest':
+
+elif defclass == 'sorcerer' or 'mage' or 'priest':
     defdmgtype = 'magic'
-elif defclass == 'sorcerer':
-    defdmgtype = 'magic'
-elif defclass == 'mage':
-    defdmgtype = 'magic'
-    #Now set dmg type(int)
+
 if defdmgtype == 'melee':
     defdmgmod = defstre
 elif defdmgtype == 'ranged':
     defdmgmod = defagl
 elif defdmgtype == 'magic':
     defdmgmod = definte
+
 while True:
     dodge = random.randrange(0,51,1)
     if defagl >= dodge:
         print '\nThe defending', defclass, 'dodged completely!\n'
         break
     elif 3 * defagl >= dodge:
-        atkdmg = atkdmgmod * randmult
+        atkdmg = (atkdmgmod * randmult)/2
         print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'damage!\n'
         break
     else:
