@@ -14,8 +14,8 @@ item = 'u' #Player's Weapon of Choice
 name = raw_input("Enter your character's name:\n")
 race = raw_input('Enter race.\n(Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian)\n')
 cclass = raw_input('Enter class.\n(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage)\n')
-race.lower()
-cclass.lower()
+race = race.lower()
+cclass = cclass.lower()
 if race == 'human':
     hp = hp + 5
     mana = mana
