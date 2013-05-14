@@ -53,49 +53,17 @@ defconc = int(defconc)
 
 while True:
     if atkclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
-        atkdmgtype = 'melee'
+        atkdmgtype = atkstre
         break
     elif atkclass == 'skirmisher' or 'ranger' or 'hunter':
-        atkdmgtype = 'ranged'
+        atkdmgtype = atkagl
         break
     elif atkclass == 'mage' or 'sorcerer' or 'priest':
-        atkdmgtype = 'magic'
+        atkdmgtype = atkinte
         break
 
 while True:
-    if atkdmgtype == 'melee':
-        atkdmgmod = atkstre
-        break
-    elif atkdmgtype == 'ranged':
-        atkdmgmod = atkagl
-        break
-    elif atkdmgtype == 'magic':
-        atkdmgmod = atkinte
-        break
-
-while True:
-    if defclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
-        defdmgtype = 'melee'
-        break
-    elif defclass == 'skirmisher' or 'ranger' or 'hunter':
-        defdmgtype = 'ranged'
-        break
-    elif defclass == 'sorcerer' or 'mage' or 'priest':
-        defdmgtype = 'magic'
-        break
-while True:
-    if defdmgtype == 'melee':
-        defdmgmod = defstre
-        break
-    elif defdmgtype == 'ranged':
-        defdmgmod = defagl
-        break
-    elif defdmgtype == 'magic':
-        defdmgmod = definte
-        break
-
-while True:
-    dodge = random.randrange(0,51,1)
+    dodge = random.randrange(0,100,1)
     if defagl >= dodge:
         print '\nThe defending', defclass, 'dodged completely!\n'
         break
@@ -108,8 +76,11 @@ while True:
         defhpleft = defhp - atkdmg
         print '\nThe defending', defclass, 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
         break
+
 print atkdmgmod, '= attack damage modifier'
 print '\n'
 print randmult, '= random attack multiplier'
 print atkinte, '= attacker intelligence'
 print atkstre, '= attacker strength'
+print atkclass
+print atkdmgtype
