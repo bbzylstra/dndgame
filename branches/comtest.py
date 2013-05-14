@@ -51,7 +51,7 @@ defcour = int(defcour)
 defdex = int(defdex)
 defconc = int(defconc)
 
-if atkclass == 'scout' or 'melee' or 'berserker' or 'swordsman':
+if atkclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
     atkdmgtype = 'melee'
 
 elif atkclass == 'skirmisher' or 'ranger' or 'hunter':
@@ -68,7 +68,7 @@ elif atkdmgtype == 'magic':
     atkdmgmod = atkinte
 
 
-if defclass == 'scout' or 'melee' or 'berserker' or 'swordsman':
+if defclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
     defdmgtype = 'melee'
 
 elif defclass == 'skirmisher' or 'ranger' or 'hunter':
@@ -98,3 +98,8 @@ while True:
         defhpleft = defhp - atkdmg
         print '\nThe defending', defclass, 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
         break
+print atkdmgmod, '= attack damage modifier'
+print '\n'
+print randmult, '= random attack multiplier'
+print atkinte, '= attacker intelligence'
+print atkstre, '= attacker strength'
