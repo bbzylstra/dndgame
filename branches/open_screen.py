@@ -18,6 +18,8 @@ while running:
         if (event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=114 and event.pos[1] <=197) :
             path=os.path.dirname(os.path.abspath(__file__))
             os.startfile(path+'\charactercreation.py')
+        elif (event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=220 and event.pos[1] <=270) :
+            running=0
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
             running = 0
