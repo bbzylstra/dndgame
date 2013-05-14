@@ -23,6 +23,9 @@ while running:
             os.startfile(path+'\charactercreation.py')
         elif (event.pos[0] >=5 and event.pos[0] <=150) and (event.pos[1] >=330 and event.pos[1] <=380) :
             running=0
+        elif (event.pos[0] >=330 and event.pos[0] <=540) and (event.pos[1] >=330 and event.pos[1] <=380) :
+            path=os.getcwd()
+            os.startfile(path+'\comtest.py')
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
             running = 0
@@ -33,9 +36,12 @@ while running:
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 114),(467,114), (467, 197),(170,197)],1)
     game = game_font.render("Character Creation", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (253,156) )
+    pygame.draw.polygon(screen, (255, 0, 0), [(350, 380),(350,330), (540, 330),(540,380)],1)
+    game = game_font.render("1v1 Combat Simulator", True, (255,0, 0), (0, 0, 0))
+    screen.blit(game, (375,350) )
     pygame.draw.polygon(screen, (255, 0, 0), [(5, 380),(150, 380), (150, 330),(5, 330)],1)
     game = game_font.render("Exit", True, (255,0, 0), (0, 0, 0))
-    screen.blit(game, (80,350) )
+    screen.blit(game, (50,350) )
     pygame.display.flip()
     clock.tick(200)
 
