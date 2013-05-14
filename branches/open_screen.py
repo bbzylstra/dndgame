@@ -4,7 +4,7 @@ import pygame,sys,os
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 pygame.init()
-screen=pygame.display.set_mode((640,480),pygame.FULLSCREEN)
+screen=pygame.display.set_mode((1080,720),pygame.FULLSCREEN)
 running =1
 bgcolor = 0, 0, 0
 LEFT=1
