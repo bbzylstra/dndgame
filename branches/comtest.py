@@ -92,6 +92,7 @@ if armor == 'heavy' and atkdmgtype == 'magic':
 
 #Damage calculations, watch out.
 dodge = random.randrange(0,100,1)
+crit = random.randrange(0,100,1)
 if atkdmgtype == 'melee' and int(distance) >= 2:#lol theyre out of range
     atkdmg = 0
     defhpleft = int(defend[3]) - int(atkdmg)
@@ -113,10 +114,17 @@ else:
                     break
 
                 else:
-                    atkdmg = atkdmgmod * randmult
-                    defhpleft = int(defend[3]) - int(atkdmg)
-                    print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                    break
+                    if int(attack[10] >= crit:
+                        atkdmg = atkdmgmod * randmult * 2
+                        defhpleft = int(defend[3]) - int(atkdmg)
+                        print '\nThe defending', str(defend[2]), 'suffered a crit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
+                        break
+
+                    else:
+                        atkdmg = atkdmgmod * randmult
+                        defhpleft = int(defend[3]) - int(atkdmg)
+                        print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
+                        break
 
             else:
                 atkdmg = 0
@@ -137,10 +145,17 @@ else:
                 break
 
             else:
-                atkdmg = atkdmgmod * randmult
-                defhpleft = int(defend[3]) - int(atkdmg)
-                print '\nThe defending', defend[2], 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                break
+                if int(attack[10] >= crit:
+                    atkdmg = atkdmgmod * randmult * 2
+                    defhpleft = int(defend[3]) - int(atkdmg)
+                    print '\nThe defending', str(defend[2]), 'suffered a crit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
+                    break
+
+                else:
+                    atkdmg = atkdmgmod * randmult
+                    defhpleft = int(defend[3]) - int(atkdmg)
+                    print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
+                    break
 
         if atkdmgtype == 'magic':
             if int(distance) <= 8:
@@ -156,10 +171,17 @@ else:
                     break
 
                 else:
-                    atkdmg = atkdmgmod * randmult
-                    defhpleft = int(defend[3]) - int(atkdmg)
-                    print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                    break
+                    if int(attack[10] >= crit:
+                        atkdmg = atkdmgmod * randmult * 2
+                        defhpleft = int(defend[3]) - int(atkdmg)
+                        print '\nThe defending', str(defend[2]), 'suffered a crit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
+                        break
+
+                    else:
+                        atkdmg = atkdmgmod * randmult
+                        defhpleft = int(defend[3]) - int(atkdmg)
+                        print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
+                        break
             else:
                 atkdmg = 0
                 defhpleft = int(defend[3]) - int(atkdmg)
