@@ -4,7 +4,7 @@ import pygame,sys,os
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 pygame.init()
-screen=pygame.display.set_mode((1080,720),pygame.FULLSCREEN)
+screen=pygame.display.set_mode((640,400),pygame.FULLSCREEN)
 running =1
 bgcolor = 0, 0, 0
 LEFT=1
@@ -23,7 +23,7 @@ while running:
             os.startfile(path+'\charactercreation.py')
         elif (event.pos[0] >=5 and event.pos[0] <=150) and (event.pos[1] >=330 and event.pos[1] <=380) :
             running=0
-        elif (event.pos[0] >=330 and event.pos[0] <=540) and (event.pos[1] >=330 and event.pos[1] <=380) :
+        elif (event.pos[0] >=370 and event.pos[0] <=590) and (event.pos[1] >=330 and event.pos[1] <=380) :
             path=os.getcwd()
             os.startfile(path+'\comtest.py')
     if event.type == pygame.KEYDOWN:
@@ -36,10 +36,10 @@ while running:
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 114),(467,114), (467, 197),(170,197)],1)
     game = game_font.render("Character Creation", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (253,156) )
-    pygame.draw.polygon(screen, (255, 0, 0), [(350, 380),(350,330), (540, 330),(540,380)],1)
+    pygame.draw.polygon(screen, (255, 0, 0), [(370, 380),(370,330), (590, 330),(590,380)],1)
     game = game_font.render("1v1 Combat Simulator", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (375,350) )
-    pygame.draw.polygon(screen, (255, 0, 0), [(5, 380),(150, 380), (150, 330),(5, 330)],1)
+    pygame.draw.polygon(screen, (255, 0, 0), [(10, 380),(150, 380), (150, 330),(10, 330)],1)
     game = game_font.render("Exit", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (50,350) )
     pygame.display.flip()
