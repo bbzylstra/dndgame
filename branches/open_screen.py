@@ -16,7 +16,8 @@ while running:
     elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
         print "You released the left mouse button at (%d, %d)" % event.pos
         if (event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=114 and event.pos[1] <=197) :
-            os.startfile('C:\Users\Brad\PycharmProjects\Test\charactercreation.py')
+            path=os.path.dirname(os.path.abspath(__file__))
+            os.startfile(path+'\charactercreation.py')
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
             running = 0
