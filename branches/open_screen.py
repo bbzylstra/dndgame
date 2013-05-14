@@ -30,9 +30,6 @@ while running:
         if event.key == pygame.K_ESCAPE:
             running = 0
     screen.fill((bgcolor))
-    pygame.draw.rect(screen, (255, 0, 0), (169, 17, 300, 69),1)
-    game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))
-    screen.blit(game, (299,47) )
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 114),(467,114), (467, 197),(170,197)],1)
     game = game_font.render("Character Creation", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (253,156) )
