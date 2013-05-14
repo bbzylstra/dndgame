@@ -23,22 +23,24 @@ f.close()
 #array[5]=stamina
 #array[6]=stre
 #array[7]=agl
-#array[8]=cour
-#array[9]=dex
-#array[10]=conc
+#array[8]=inte
+#array[9]=cour
+#array[10]=dex
+#array[11]=conc
 
-if attack[2] == ('swordsman\n' or 'berserker\n' or 'knight\n' or 'scout\n') :
+if attack[2] in ['swordsman'+'\n','berserker'+'\n','knight'+'\n','scout'+'\n']:
     atkdmgmod = int(attack[6])
-elif attack[2] == ('hunter\n' or 'ranger\n' or 'skirmisher\n'):
+elif attack[2] in ['hunter'+'\n','ranger'+'\n','skirmisher'+'\n']:
     atkdmgmod = int(attack[7])
-elif attack[2] == ('priest\n' or 'sorcerer\n' or 'mage\n'):
+elif attack[2] in ['priest'+'\n','sorcerer'+'\n','mage'+'\n']:
     atkdmgmod = int(attack[8])
+    
 
-if defend[2] == ('swordsman\n' or 'berserker\n' or 'knight\n' or 'scout\n'):
+if defend[2] in ['swordsman\n','berserker\n','knight\n','scout\n']:
     defdmgmod = int(defend[6])
-elif defend[2] == ('hunter\n' or 'ranger\n' or 'skirmisher\n'):
+elif defend[2] in ['hunter\n','ranger\n','skirmisher\n']:
     defdmgmod = int(defend[7])
-elif defend[2] == ('priest\n' or 'sorcerer\n' or 'mage\n'):
+elif defend[2] in ['priest\n','sorcerer\n','mage\n']:
     defdmgmod = int(defend[8])
 
 dodge = random.randrange(0,100,1)
