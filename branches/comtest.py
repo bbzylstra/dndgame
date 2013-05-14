@@ -1,12 +1,25 @@
 import random
-attacker = '?'
-defender = '?'
+attacker = ''
+defender = ''
 atkdmgtype = 1
 atkdmgmod = 1
 defdmgtype = 1
 defdmgmod = 1
 randmult = random.randint(2,4)
 randmult = int(randmult)
+atkstre = 1
+atkagl = 1
+atkinte = 1
+atkcour = 1
+atkdex = 1
+atkconc = 1
+defhp = 1
+defstre = 1
+defagl = 1
+definte = 1
+defcour = 1
+defdex = 1
+defconc = 1
 attacker = raw_input('The name of the offensive combatant: ')
 defender = raw_input('\nThe name of the defensive combatant: ')
 f=open(attacker,'r')
@@ -51,46 +64,39 @@ defcour = int(defcour)
 defdex = int(defdex)
 defconc = int(defconc)
 
-while True:
-    if atkclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
-        atkclasstype = 'melee'
-        break
-    elif atkclass == 'skirmisher' or 'ranger' or 'hunter':
-        atkclasstype = 'ranged'
-        break
-    elif atkclass == 'mage' or 'sorcerer' or 'priest':
-        atkclasstype = 'magic'
-        break
-while True:
-    if atkclasstype == 'melee':
-        atkdmgtype = atkstre
-        break
-    elif atkclasstype == 'ranged':
-        atkdmgtype = atkagl
-        break
-    elif atkclasstype == 'magic':
-        atkdmgtype = atkinte
-        break
-        
-while True:
-    dodge = random.randrange(0,100,1)
-    if defagl >= dodge:
-        print '\nThe defending', defclass, 'dodged completely!\n'
-        break
-    elif 3 * defagl >= dodge:
-        atkdmg = (atkdmgtype * randmult)/2
-        print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'damage!\n'
-        break
-    else:
-        atkdmg = atkdmgtype * randmult
-        defhpleft = defhp - atkdmg
-        print '\nThe defending', defclass, 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-        break
 
-print atkdmgtype, '= attack damage modifier'
-print '\n'
+if atkclass == ('swordsman\n' or 'berserker\n' or 'knight\n' or 'scout\n') :
+    atkdmgmod = atkstre
+elif atkclass == ('hunter\n' or 'ranger\n' or 'skirmisher\n'):
+    atkdmgmod = atkagl
+elif atkclass == ('priest\n' or 'sorcerer\n' or 'mage\n'):
+    atkdmgmod = atkinte
+
+if defclass == ('swordsman\n' or 'berserker\n' or 'knight\n' or 'scout\n'):
+    defdmgmod = defstre
+elif defclass == ('hunter\n' or 'ranger\n' or 'skirmisher\n'):
+    defdmgmod = defagl
+elif defclass == ('priest\n' or 'sorcerer\n' or 'mage\n'):
+    defdmgmod = definte
+
+
+dodge = random.randrange(0,100,1)
+if defagl >= dodge:
+    print '\nThe defending', defclass, 'dodged completely!\n'
+
+elif 3 * defagl >= dodge:
+    atkdmg = (atkdmgmod * randmult)/2
+    print '\nThe defending', defclass, 'partially dodged, and only suffered', atkdmg,'damage!\n'
+
+else:
+    atkdmg = atkdmgmod * randmult
+    defhpleft = defhp - atkdmg
+    print '\nThe defending', defclass, 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
+
+
 print randmult, '= random attack multiplier'
 print atkinte, '= attacker intelligence'
 print atkstre, '= attacker strength'
-print atkclasstype
-print atkclass
+print atkdmgmod, '= atkdmgmod'
+print atkclass, ' = Class'
+print atkdmg,'= total damage'
