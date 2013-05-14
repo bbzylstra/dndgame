@@ -27,7 +27,7 @@ while running:
     screen.blit(game, (253,156) )
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 220),(467, 220), (467, 270),(170, 270)],1)
     game = game_font.render("Exit", True, (255,0, 0), (0, 0, 0))
-    screen.blit(game, (253,220) )
+    screen.blit(game, (273,230) )
     pygame.display.flip()
     clock.tick(200)
 pygame.quit()
