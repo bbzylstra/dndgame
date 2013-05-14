@@ -51,38 +51,48 @@ defcour = int(defcour)
 defdex = int(defdex)
 defconc = int(defconc)
 
-if atkclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
-    atkdmgtype = 'melee'
+while True:
+    if atkclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
+        atkdmgtype = 'melee'
+        break
+    elif atkclass == 'skirmisher' or 'ranger' or 'hunter':
+        atkdmgtype = 'ranged'
+        break
+    elif atkclass == 'mage' or 'sorcerer' or 'priest':
+        atkdmgtype = 'magic'
+        break
 
-elif atkclass == 'skirmisher' or 'ranger' or 'hunter':
-    atkdmgtype = 'ranged'
+while True:
+    if atkdmgtype == 'melee':
+        atkdmgmod = atkstre
+        break
+    elif atkdmgtype == 'ranged':
+        atkdmgmod = atkagl
+        break
+    elif atkdmgtype == 'magic':
+        atkdmgmod = atkinte
+        break
 
-elif atkclass == 'mage' or 'sorcerer' or 'priest':
-    atkdmgtype = 'magic'
-
-if atkdmgtype == 'melee':
-    atkdmgmod = atkstre
-elif atkdmgtype == 'ranged':
-    atkdmgmod = atkagl
-elif atkdmgtype == 'magic':
-    atkdmgmod = atkinte
-
-
-if defclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
-    defdmgtype = 'melee'
-
-elif defclass == 'skirmisher' or 'ranger' or 'hunter':
-    defdmgtype = 'ranged'
-
-elif defclass == 'sorcerer' or 'mage' or 'priest':
-    defdmgtype = 'magic'
-
-if defdmgtype == 'melee':
-    defdmgmod = defstre
-elif defdmgtype == 'ranged':
-    defdmgmod = defagl
-elif defdmgtype == 'magic':
-    defdmgmod = definte
+while True:
+    if defclass == 'scout' or 'knight' or 'berserker' or 'swordsman':
+        defdmgtype = 'melee'
+        break
+    elif defclass == 'skirmisher' or 'ranger' or 'hunter':
+        defdmgtype = 'ranged'
+        break
+    elif defclass == 'sorcerer' or 'mage' or 'priest':
+        defdmgtype = 'magic'
+        break
+while True:
+    if defdmgtype == 'melee':
+        defdmgmod = defstre
+        break
+    elif defdmgtype == 'ranged':
+        defdmgmod = defagl
+        break
+    elif defdmgtype == 'magic':
+        defdmgmod = definte
+        break
 
 while True:
     dodge = random.randrange(0,51,1)
