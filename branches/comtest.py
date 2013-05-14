@@ -15,6 +15,17 @@ f.close()
 f = open(defender)
 defend = f.readlines()
 f.close()
+#array[0]=name
+#array[1]=race
+#array[2]=cclass
+#array[3]=hp
+#array[4]=mana
+#array[5]=stamina
+#array[6]=stre
+#array[7]=agl
+#array[8]=cour
+#array[9]=dex
+#array[10]=conc
 
 if attack[2] == ('swordsman\n' or 'berserker\n' or 'knight\n' or 'scout\n') :
     atkdmgmod = int(attack[6])
@@ -42,4 +53,3 @@ else:
     atkdmg = atkdmgmod * randmult
     defhpleft = int(defend[3]) - int(atkdmg)
     print '\nThe defending', defend[2], 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-
