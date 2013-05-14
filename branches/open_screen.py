@@ -21,7 +21,7 @@ while running:
         if (event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=114 and event.pos[1] <=197) :
             path=os.getcwd()
             os.startfile(path+'\charactercreation.py')
-        elif (event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=220 and event.pos[1] <=270) :
+        elif (event.pos[0] >=5 and event.pos[0] <=150) and (event.pos[1] >=330 and event.pos[1] <=380) :
             running=0
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
@@ -33,9 +33,9 @@ while running:
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 114),(467,114), (467, 197),(170,197)],1)
     game = game_font.render("Character Creation", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (253,156) )
-    pygame.draw.polygon(screen, (255, 0, 0), [(170, 220),(467, 220), (467, 270),(170, 270)],1)
+    pygame.draw.polygon(screen, (255, 0, 0), [(5, 380),(150, 380), (150, 330),(5, 330)],1)
     game = game_font.render("Exit", True, (255,0, 0), (0, 0, 0))
-    screen.blit(game, (273,230) )
+    screen.blit(game, (80,350) )
     pygame.display.flip()
     clock.tick(200)
 
