@@ -1,25 +1,10 @@
 import random
 attacker = ''
 defender = ''
-atkdmgtype = 1
 atkdmgmod = 1
-defdmgtype = 1
 defdmgmod = 1
 randmult = random.randint(2,4)
 randmult = int(randmult)
-atkstre = 1
-atkagl = 1
-atkinte = 1
-atkcour = 1
-atkdex = 1
-atkconc = 1
-defhp = 1
-defstre = 1
-defagl = 1
-definte = 1
-defcour = 1
-defdex = 1
-defconc = 1
 attacker = raw_input('The name of the offensive combatant: ')
 defender = raw_input('\nThe name of the defensive combatant: ')
 f=open(attacker,'r')
