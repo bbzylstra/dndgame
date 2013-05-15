@@ -110,6 +110,7 @@ while True:
         cour = cour
         dex = dex - 1
         conc = conc + 4
+        break
     elif race == 'dragon':
         hp = hp + 450
         mana = mana + 75
@@ -120,6 +121,7 @@ while True:
         cour = cour + 10
         dex = dex
         conc = conc
+        break
     elif race == 'orc':
         hp = hp
         mana = mana - 10
@@ -130,6 +132,7 @@ while True:
         cour = cour + 2
         dex = dex - 3
         conc = conc - 1
+        break
     elif race == 'goblin':
         hp = hp - 20
         mana = mana - 15
@@ -140,6 +143,7 @@ while True:
         cour = cour - 2
         dex = dex - 1
         conc = conc - 1
+        break
     else:
         print "Not understood, please try again: "
 
