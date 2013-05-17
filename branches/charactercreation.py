@@ -1,3 +1,4 @@
+import os
 name = 'unknown' #Variable for Player Name
 race = 'u' #Variable for Race of Player
 cclass = 'u' #Variable for the Class of Player Character
@@ -11,22 +12,23 @@ cour = 5 #Base Courage for all Chars
 dex = 5 #Base Dexterity for all Chars
 conc = 5 #Base Concentration for all Chars
 item = 'u' #Player's Weapon of Choice
-profblades = False
-profblunt = False
-profsmall = False
-profsmshields = False
-prof2handed = False
-dualwield = False
-profkiteshield = False
-smalldualwield = False
-profbows = False
-profsshields = False
-profspears = False
-profjavelins = False
-profthrowables = False
-profstaff = False
-profhealing = False
-profdarkmajyyks = False
+profs=[False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]
+#profs[0] = blades
+#profs[1]= blunt
+#profs[2]= small
+#profs[3]= small/medium shields
+#profs[4]= two handed
+#profs[5]= dual wield
+#profs[6]= kiteshield
+#profs[7]= small dualwield
+#profs[8]= bow
+#profs[9]= small shields
+#profs[10]= spears
+#profs[11]= javelins
+#profs[12]= throwables
+#profs[13]= staffs
+#profs[14]= healing
+#profs[15]= dark majyyks
 name = raw_input("Enter your character's name: ")
 
 while True:
@@ -117,10 +119,10 @@ while True:
         cour = cour + 1
         dex = dex
         conc = conc - 1
-        profblades = True
-        profblunt = True
-        profsmall = True
-        profsmshields = True
+        profs[0] = True
+        profs[1]  = True
+        profs[2] = True
+        profs[3] = True
         break
     elif cclass == 'berserker':
         hp = hp + 10
@@ -132,10 +134,10 @@ while True:
         cour = cour + 2
         dex = dex - 1
         conc = conc - 1
-        profblades = True
-        profblunt = True
-        prof2handed = True
-        dualwield = True
+        profs[0] = True
+        profs[1] = True
+        profs[4] = True
+        profs[5] = True
         break
     elif cclass == 'knight':
         hp = hp + 30
@@ -147,10 +149,10 @@ while True:
         cour = cour + 2
         dex = dex - 2
         conc = conc - 1
-        profblades = True
-        profblunt = True
-        prof2handed = True
-        profkiteshield = True
+        profs[0] = True
+        profs[1] = True
+        profs[4] = True
+        profs[6] = True
         break
     elif cclass == 'scout':
         hp = hp
@@ -162,8 +164,8 @@ while True:
         cour = cour - 1
         dex = dex + 1
         conc = conc - 1
-        profsmall = True
-        smalldualwield = True
+        profs[2] = True
+        profs[7] = True
         break
     elif cclass == 'hunter':
         hp = hp
@@ -175,9 +177,9 @@ while True:
         cour = cour - 1
         dex = dex + 2
         conc = conc
-        profbows = True
-        profblades = True
-        profblunt = True
+        profs[8] = True
+        profs[0] = True
+        profs[1] = True
         break
     elif cclass == 'ranger':
         hp = hp - 10
@@ -189,8 +191,8 @@ while True:
         cour = cour - 1
         dex = dex + 2
         conc = conc + 1
-        profsmall = True
-        profbows = True
+        profs[2] = True
+        profs[8] = True
         break
     elif cclass == 'skirmisher':
         hp = hp + 5
@@ -202,12 +204,12 @@ while True:
         cour = cour - 1
         dex = dex + 1
         conc = conc
-        profsshields = True
-        profblades = True
-        profblunt = True
-        profspears = True
-        profjavelins = True
-        profthrowables = True
+        profs[9] = True
+        profs[0] = True
+        profs[1] = True
+        profs[10] = True
+        profs[11] = True
+        profs[12] = True
         break
     elif cclass == 'priest':
         hp = hp - 5
@@ -219,8 +221,8 @@ while True:
         cour = cour - 1
         dex = dex - 1
         conc = conc + 2
-        profstaff = True
-        profhealing = True
+        profs[13] = True
+        profs[14] = True
         break
     elif cclass == 'sorcerer':
         hp = hp
@@ -232,9 +234,9 @@ while True:
         cour = cour - 1
         dex = dex + 1
         conc = conc + 3
-        profstaff = True
-        profsmall = True
-        profdarkmajyyks = True
+        profs[13] = True
+        profs[2] = True
+        profs[15] = True
         break
     elif cclass == 'mage':
         hp = hp + 5
@@ -246,7 +248,7 @@ while True:
         cour = cour
         dex = dex
         conc = conc + 2
-        profstaff = True
+        profs[13] = True
         break
     else:
         print "Not understood, please try again "
@@ -261,8 +263,9 @@ print '\nintelligence =',inte
 print '\ncourage =',cour
 print '\ndexterity =',dex
 print '\nconcentration =',conc
-
-f=open(name,'w')
+pathname = os.path.abspath(os.getcwd()+"/%s/" % name)
+if not os.path.exists(pathname): os.makedirs(pathname)
+f=open(pathname+"/stats.wagh",'w')
 f.write(name)
 f.write('\n')
 f.write(race)
@@ -286,4 +289,15 @@ f.write('\n')
 f.write(str(dex))
 f.write('\n')
 f.write(str(conc))
+f.close()
+f=open(pathname+"/profs.wagh",'w')
+profstr=['']*16
+counter=0
+for x in profs:
+    profstr[counter]=str(x)+'\n'
+    counter+=1
+f.writelines(profstr)
+f.write("\n"+'profs[0] = blades'+'\n'+'profs[1]= blunt'+'\n'+'profs[2]= small'+'\n'+'profs[3]= small/medium shields'+'\n'+'profs[4]= two handed'+'\n'+'profs[5]= dual wield'+'\n'+
+'profs[6]= kiteshield'+'\n'+'profs[7]= small dualwield'+'\n'+'profs[8]= bow'+'\n'+'profs[9]= small shields'+'\n'+'profs[10]= spears'+'\n'+'profs[11]= javelins'+'\n'+ 'profs[12]= throwables'+
+'\n'+'profs[13]= staffs'+'\n'+'profs[14]= healing'+'\n'+'profs[15]= dark majyyks'+'\n'+'more blood for the blood god')
 f.close()
