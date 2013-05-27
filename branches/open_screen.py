@@ -1,7 +1,6 @@
 __author__ = 'Brad'
 import ctypes
 import pygame,sys,os
-import ctypes
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 pygame.init()
@@ -14,34 +13,44 @@ game_font = pygame.font.Font("freesansbold.ttf",15)
 game=False
 def drawScreen(game):
     img=pygame.image.load('tile50x50.png')
-    img=img.convert_alpha()
     bgcolor = 0, 0, 0
     if game == True:
-        while True:
             x=[0]
             y=[0]
-            event = pygame.event.poll()
             screen.fill((bgcolor))
-            size=10
-            for i in range(0,size):
-                y.append((screensize[1]/size)+y[i])
-                x.append((screensize[0]/size)+x[i])
+            sizex=5
+            sizey=6
+            for i in range(0,sizey):
+                y.append((screensize[1]/sizey)+y[i])
+            for i in range(0,sizex):
+                x.append((screensize[0]/sizex)+x[i])
             img=pygame.transform.scale(img,(x[1],y[1]))
             for i in x:
                 for z in y:
                     screen.blit(img,(i,z))
-            for i in range(0,size+1):
-                if i==size:
+            for i in range(0,sizex+1):
+                if i==sizex:
                     pygame.draw.line(screen,(0,0,255),(x[i]-1,0),(x[i]-1,screensize[1]),1)
-                    pygame.draw.line(screen,(0,0,255),(0,y[i]-1),(screensize[0],y[i]-1),1)
                 else:
                     pygame.draw.line(screen,(0,0,255),(x[i],0),(x[i],screensize[1]),1)
+            for i in range(0,sizey+1):
+                if i==sizey:
+                    pygame.draw.line(screen,(0,0,255),(0,y[i]-1),(screensize[0],y[i]-1),1)
+                else:
                     pygame.draw.line(screen,(0,0,255),(0,y[i]),(screensize[0],y[i]),1)
 
             pygame.display.update()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    break
+    return x,y
+def detectSquare(x,y,xi,yi):
+    cellNumber=-1
+    for i,w in enumerate(y):
+        for z,h in enumerate(x):
+            if (xi>h and xi<x[z+1]) and (yi>w and yi<y[i+1]):
+                cellNumber=(len(x)-1)*i+z
+    return cellNumber
+
+
+
     return None
 while running:
     event = pygame.event.poll()
@@ -64,7 +73,17 @@ while running:
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
             running = 0
-    drawScreen(game)
+    if game==True:
+        while game==True:
+            event = pygame.event.poll()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    break
+            x,y=drawScreen(game)
+            if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
+                xi,yi=event.pos
+                print("Cell Number: %d" % detectSquare(x,y,xi,yi))
+            clock.tick(200)
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 30),(467,30), (467, 100),(170,100)],1)
     game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))
