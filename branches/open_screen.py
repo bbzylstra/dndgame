@@ -13,24 +13,24 @@ clock = pygame.time.Clock()
 game_font = pygame.font.Font("freesansbold.ttf",15)
 game=False
 s=pygame.sprite.Sprite()
-img=pygame.image.load('mapthingy.png')
+img=pygame.image.load('tile50x50.png')
 img=pygame.transform.scale(img,(100,100))
 img=img.convert_alpha()
 def drawScreen(game):
     bgcolor = 0, 0, 0
     if game == True:
         while True:
-            x=0
-            y=0
+            x=[0]
+            y=[0]
             event = pygame.event.poll()
             screen.fill((bgcolor))
             size=10
             screen.blit(img,(0,0))
             for i in range(0,size):
-                pygame.draw.line(screen,(255,0,0),(x,0),(x,screensize[1]),1)
-                pygame.draw.line(screen,(255,0,0),(0,y),(screensize[0],y),1)
-                y=(screensize[1]/size)+y
-                x=(screensize[0]/size)+x
+                pygame.draw.line(screen,(255,0,0),(x[i],0),(x[i],screensize[1]),1)
+                pygame.draw.line(screen,(255,0,0),(0,y[i]),(screensize[0],y[i]),1)
+                y.append((screensize[1]/size)+y[i])
+                x.append((screensize[0]/size)+x[i])
             pygame.display.update()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
