@@ -12,7 +12,10 @@ LEFT=1
 clock = pygame.time.Clock()
 game_font = pygame.font.Font("freesansbold.ttf",15)
 game=False
+s=pygame.sprite.Sprite()
 img=pygame.image.load('mapthingy.png')
+img=pygame.transform.scale(img,(100,100))
+img=img.convert_alpha()
 def drawScreen(game):
     bgcolor = 0, 0, 0
     if game == True:
