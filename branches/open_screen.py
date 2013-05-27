@@ -30,9 +30,13 @@ def drawScreen(game):
             for i in x:
                 for z in y:
                     screen.blit(img,(i,z))
-            for i in range(0,size):
-                pygame.draw.line(screen,(0,0,255),(x[i],0),(x[i],screensize[1]),1)
-                pygame.draw.line(screen,(0,0,255),(0,y[i]),(screensize[0],y[i]),1)
+            for i in range(0,size+1):
+                if i==size:
+                    pygame.draw.line(screen,(0,0,255),(x[i]-1,0),(x[i]-1,screensize[1]),1)
+                    pygame.draw.line(screen,(0,0,255),(0,y[i]-1),(screensize[0],y[i]-1),1)
+                else:
+                    pygame.draw.line(screen,(0,0,255),(x[i],0),(x[i],screensize[1]),1)
+                    pygame.draw.line(screen,(0,0,255),(0,y[i]),(screensize[0],y[i]),1)
 
             pygame.display.update()
             if event.type == pygame.KEYDOWN:
