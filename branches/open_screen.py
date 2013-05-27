@@ -15,14 +15,20 @@ game_font = pygame.font.Font("freesansbold.ttf",15)
 game=False
 def drawScreen(game):
     bgcolor = 0, 0, 0
-    print 'Entered drawScreen'
     if game == True:
         while True:
             x=0
             y=0
             event = pygame.event.poll()
             screen.fill((bgcolor))
-            pygame.draw.line(screen,(255,0,0),(0,0),(0,720),1)
+            x=0
+            y=0
+            size=10
+            for i in range(0,size):
+                pygame.draw.line(screen,(255,0,0),(x,0),(x,screensize[1]),1)
+                pygame.draw.line(screen,(255,0,0),(0,y),(screensize[0],y),1)
+                y=(screensize[1]/size)+y
+                x=(screensize[0]/size)+x
             pygame.display.update()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
