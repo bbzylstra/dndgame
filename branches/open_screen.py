@@ -2,9 +2,11 @@ __author__ = 'Brad'
 import ctypes
 import pygame,sys,os
 user32 = ctypes.windll.user32
+import ctypes
+user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 pygame.init()
-screen=pygame.display.set_mode((640,400),pygame.FULLSCREEN)
+screen=pygame.display.set_mode((screensize),pygame.FULLSCREEN)
 running =1
 bgcolor = 0, 0, 0
 LEFT=1
@@ -16,8 +18,11 @@ def drawScreen(game):
     print 'Entered drawScreen'
     if game == True:
         while True:
+            x=0
+            y=0
             event = pygame.event.poll()
             screen.fill((bgcolor))
+            pygame.draw.line(screen,(255,0,0),(0,0),(0,720),1)
             pygame.display.update()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
