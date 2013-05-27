@@ -1,7 +1,6 @@
 __author__ = 'Brad'
 import ctypes
 import pygame,sys,os
-user32 = ctypes.windll.user32
 import ctypes
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
@@ -13,6 +12,7 @@ LEFT=1
 clock = pygame.time.Clock()
 game_font = pygame.font.Font("freesansbold.ttf",15)
 game=False
+img=pygame.image.load('mapthingy.png')
 def drawScreen(game):
     bgcolor = 0, 0, 0
     if game == True:
@@ -21,9 +21,8 @@ def drawScreen(game):
             y=0
             event = pygame.event.poll()
             screen.fill((bgcolor))
-            x=0
-            y=0
             size=10
+            screen.blit(img,(0,0))
             for i in range(0,size):
                 pygame.draw.line(screen,(255,0,0),(x,0),(x,screensize[1]),1)
                 pygame.draw.line(screen,(255,0,0),(0,y),(screensize[0],y),1)
