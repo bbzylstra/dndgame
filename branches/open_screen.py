@@ -20,10 +20,12 @@ def drawScreen(game):
             screen.fill((bgcolor))
             sizex=18
             sizey=20
+            maxX=screensize[0]-screensize[0]/10
+            maxY=screensize[1]-screensize[1]/10
             for i in range(0,sizey):
-                y.append(int(round(screensize[1]/sizey,0))+y[i])
+                y.append(int(round(maxY/sizey,0))+y[i])
             for i in range(0,sizex):
-                x.append((int(round(float(screensize[0])/float(sizex),0)))+x[i])
+                x.append((int(round(float(maxX)/float(sizex),0)))+x[i])
             img=pygame.transform.scale(img,(x[1],y[1]))
             for c,i in enumerate(y):
                 for f,z in enumerate(x):
@@ -31,14 +33,14 @@ def drawScreen(game):
                         screen.blit(img,(z,i))
             for i in range(0,sizex+1):
                 if i==sizex:
-                    pygame.draw.line(screen,(0,0,255),(x[i]-1,0),(x[i]-1,screensize[1]),1)
+                    pygame.draw.line(screen,(0,0,255),(x[i]-1,0),(x[i]-1,maxY),1)
                 else:
-                    pygame.draw.line(screen,(0,0,255),(x[i],0),(x[i],screensize[1]),1)
+                    pygame.draw.line(screen,(0,0,255),(x[i],0),(x[i],maxY),1)
             for i in range(0,sizey+1):
                 if i==sizey:
-                    pygame.draw.line(screen,(0,0,255),(0,y[i]-1),(screensize[0],y[i]-1),1)
+                    pygame.draw.line(screen,(0,0,255),(0,y[i]-1),(maxX,y[i]-1),1)
                 else:
-                    pygame.draw.line(screen,(0,0,255),(0,y[i]),(screensize[0],y[i]),1)
+                    pygame.draw.line(screen,(0,0,255),(0,y[i]),(maxX,y[i]),1)
 
             pygame.display.update()
     return x,y
@@ -46,8 +48,12 @@ def detectSquare(x,y,xi,yi):
     cellNumber=-1
     for i,w in enumerate(y):
         for z,h in enumerate(x):
-            if (xi>h and xi<x[z+1]) and (yi>w and yi<y[i+1]):
-                cellNumber=(len(x)-1)*i+z
+            if ((xi>screensize[0]-screensize[0]/10) or y>screensize[1]-screensize[1]/10):
+                cellNumber=(-1)
+                return cellNumber
+            else:
+                if (xi>h and xi<x[z+1]) and (yi>w and yi<y[i+1]):
+                    cellNumber=(len(x)-1)*i+z
     return cellNumber
 while running:
     event = pygame.event.poll()
