@@ -18,16 +18,17 @@ def drawScreen(game):
             x=[0]
             y=[0]
             screen.fill((bgcolor))
-            sizex=5
-            sizey=6
+            sizex=18
+            sizey=20
             for i in range(0,sizey):
-                y.append((screensize[1]/sizey)+y[i])
+                y.append(int(round(screensize[1]/sizey,0))+y[i])
             for i in range(0,sizex):
-                x.append((screensize[0]/sizex)+x[i])
+                x.append((int(round(float(screensize[0])/float(sizex),0)))+x[i])
             img=pygame.transform.scale(img,(x[1],y[1]))
-            for i in x:
-                for z in y:
-                    screen.blit(img,(i,z))
+            for c,i in enumerate(y):
+                for f,z in enumerate(x):
+                    if (not f+1==len(x)) and (not c+1==len(y)):
+                        screen.blit(img,(z,i))
             for i in range(0,sizex+1):
                 if i==sizex:
                     pygame.draw.line(screen,(0,0,255),(x[i]-1,0),(x[i]-1,screensize[1]),1)
@@ -48,10 +49,6 @@ def detectSquare(x,y,xi,yi):
             if (xi>h and xi<x[z+1]) and (yi>w and yi<y[i+1]):
                 cellNumber=(len(x)-1)*i+z
     return cellNumber
-
-
-
-    return None
 while running:
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
