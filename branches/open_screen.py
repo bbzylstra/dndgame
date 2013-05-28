@@ -1,6 +1,7 @@
 __author__ = 'Brad'
 import ctypes
 import pygame,sys,os
+from decimal import Decimal
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 pygame.init()
@@ -15,40 +16,36 @@ def drawScreen(game):
     img=pygame.image.load('tile50x50.png')
     bgcolor = 0, 0, 0
     if game == True:
-            x=[0]
-            y=[0]
+            borderOffset=10
+            x=[borderOffset]
+            y=[borderOffset]
             screen.fill((bgcolor))
             sizex=18
             sizey=20
-            maxX=screensize[0]-screensize[0]/10
-            maxY=screensize[1]-screensize[1]/10
+            color = 0,255,0
+            maxX=int(screensize[0]-screensize[0]/10)-borderOffset
+            maxY=int(screensize[1]-screensize[1]/10)-borderOffset
             for i in range(0,sizey):
-                y.append(int(round(maxY/sizey,0))+y[i])
+                y.append(float(maxY/sizey)+y[i])
             for i in range(0,sizex):
-                x.append((int(round(float(maxX)/float(sizex),0)))+x[i])
-            img=pygame.transform.scale(img,(x[1],y[1]))
+                x.append(float((maxX)/(sizex))+x[i])
+            #y[sizey],x[sizex]=x[sizex],y[sizey]
+            img=pygame.transform.scale(img,(int(x[1]-borderOffset),int(y[1]-borderOffset)))
             for c,i in enumerate(y):
                 for f,z in enumerate(x):
                     if (not f+1==len(x)) and (not c+1==len(y)):
                         screen.blit(img,(z,i))
             for i in range(0,sizex+1):
-                if i==sizex:
-                    pygame.draw.line(screen,(0,0,255),(x[i]-1,0),(x[i]-1,maxY),1)
-                else:
-                    pygame.draw.line(screen,(0,0,255),(x[i],0),(x[i],maxY),1)
+                pygame.draw.line(screen,color,(x[i],borderOffset),(x[i],y[sizey]),1)
             for i in range(0,sizey+1):
-                if i==sizey:
-                    pygame.draw.line(screen,(0,0,255),(0,y[i]-1),(maxX,y[i]-1),1)
-                else:
-                    pygame.draw.line(screen,(0,0,255),(0,y[i]),(maxX,y[i]),1)
-
+                pygame.draw.line(screen,color,(borderOffset,y[i]),(x[sizex],y[i]),1)
             pygame.display.update()
     return x,y
 def detectSquare(x,y,xi,yi):
     cellNumber=-1
     for i,w in enumerate(y):
         for z,h in enumerate(x):
-            if ((xi>screensize[0]-screensize[0]/10) or y>screensize[1]-screensize[1]/10):
+            if ((xi>(screensize[0]-screensize[0]/10)) or yi>(screensize[1]-screensize[1]/10)):
                 cellNumber=(-1)
                 return cellNumber
             else:
