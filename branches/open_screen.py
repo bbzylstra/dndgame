@@ -1,6 +1,6 @@
 __author__ = 'Brad'
 import ctypes
-import pygame,sys,os,drawScreen,detectSquare
+import pygame,sys,os,drawScreen,detectSquare,drawToScreen
 from decimal import Decimal
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
@@ -13,10 +13,11 @@ clock = pygame.time.Clock()
 game_font = pygame.font.Font("freesansbold.ttf",15)
 Game=False
 cellNumber=-1
+cellNumber={}
 textBox=pygame.Surface(screen.get_size())
 textBox=textBox.convert()
+img3=pygame.image.load("human-swordsman.png")
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
-
 while running:
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
@@ -39,24 +40,27 @@ while running:
         if event.key == pygame.K_ESCAPE:
             running = 0
     if Game==True:
+        x,y,cellNumbers=drawScreen.drawScreen(screen,screensize)
         while Game==True:
             event = pygame.event.poll()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Game=False
                     break
-            x,y=drawScreen.drawScreen(screen,screensize)
             if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
                 xi,yi=event.pos
                 cellNumber=detectSquare.detectSquare(x,y,xi,yi,screensize)
                 print("Cell Number: %d" % detectSquare.detectSquare(x,y,xi,yi,screensize))
                 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
-            screen.blit(game1,(0,screensize[1]-50))
+            drawToScreen.drawToScreen(x,y,img3,screen,2,cellNumbers)
+            print cellNumbers[2]
+            screen.blit(game,(0,screensize[1]-30))
             pygame.display.update()
             xi,yi=pygame.mouse.get_pos()
             game = game_font.render(str(xi)+' '+str(yi), True, (255,0, 0), (0, 0, 0))
-            screen.blit(game,(0,screensize[1]-30))
+            screen.blit(game1,(0,screensize[1]-50))
             pygame.display.update()
+        pygame.display.update()
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 30),(467,30), (467, 100),(170,100)],1)
     game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))

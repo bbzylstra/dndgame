@@ -15,6 +15,7 @@ attack = f.readlines()
 f.close()
 f = open(defender)
 defend = f.readlines()
+atkdmg=0
 f.close()
 #array[0]=name
 #array[1]=race
@@ -98,7 +99,6 @@ if atkdmgtype == 'melee' and int(distance) >= 2:#lol theyre out of range
     defhpleft = int(defend[3]) - int(atkdmg)
     print '\nThe defending', defend[2], 'was out of range, you noob!'#lmoa nubs
 else:
-    while True:
         if atkdmgtype == 'ranged':
             if int(distance) <= int(attack[6]):
                 atkdmg = atkdmg * (1 + (int(attack[6])) / (int(distance)))
@@ -106,17 +106,17 @@ else:
                     atkdmg = 0
                     defhpleft = int(defend[3]) - int(atkdmg)
                     print '\nThe defending', str(defend[2]), 'dodged completely, and still has ',defhpleft,' left!\n'
-                    break
+
 
                 elif 1.5 * int(defend[8]) >= dodge:
                     atkdmg = (atkdmgmod * randmult)/2
                     defhpleft = int(defend[3]) - int(atkdmg)
                     if defhpleft <= 0:
                         print 'The defending', str(defend[2]), 'partially dodged, but took', atkdmg, 'damage and died.'
-                        break
+
                     else:
                         print '\nThe defending', str(defend[2]), 'partially dodged, and only suffered', atkdmg,'damage, and has ',defhpleft,' left!\n'
-                        break
+
 
                 else:
                     if int(attack[10]) >= crit:
@@ -124,43 +124,43 @@ else:
                         defhpleft = int(defend[3]) - int(atkdmg)
                         if defhpleft <= 0:
                             print 'The defending', str(defend[2]), 'was critted for', atkdmg, 'damage, and died.'
-                            break
+
                         else:
                             print '\nThe defending', str(defend[2]), 'suffered a crit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                            break
+
 
                     else:
                         atkdmg = atkdmgmod * randmult
                         defhpleft = int(defend[3]) - int(atkdmg)
                         if defhpleft <= 0:
                             print 'The defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and died.'
-                            break
+
                         else:
                             print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                            break
+
 
             else:
                 atkdmg = 0
                 defhpleft = int(defend[3]) - int(atkdmg)
                 print '\nThe defending', defend[2], 'was out of range, you noob!'#lmoa nubs
-                break
+
 
         elif atkdmgtype == 'melee':
             if int(defend[8]) >= dodge:
                 atkdmg = 0
                 defhpleft = int(defend[3]) - int(atkdmg)
                 print '\nThe defending', defend[2], 'dodged completely, and still has ',defhpleft,' left!\n'
-                break
+
 
             elif 3 * int(defend[8]) >= dodge:
                 atkdmg = (atkdmgmod * randmult)/2
                 defhpleft = int(defend[3]) - int(atkdmg)
                 if defhpleft <= 0:
                     print 'The defending', str(defend[2]), 'partially dodged, but took', atkdmg, 'damage and died.'
-                    break
+
                 else:
                     print '\nThe defending', str(defend[2]), 'partially dodged, and only suffered', atkdmg,'damage, and has ',defhpleft,' left!\n'
-                    break
+
 
             else:
                 if int(attack[10]) >= crit:
@@ -168,20 +168,20 @@ else:
                     defhpleft = int(defend[3]) - int(atkdmg)
                     if defhpleft <= 0:
                         print 'The defending', str(defend[2]), 'was critted for', atkdmg, 'damage, and died.'
-                        break
+
                     else:
                         print '\nThe defending', str(defend[2]), 'suffered a crit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                        break
+
 
                 else:
                     atkdmg = atkdmgmod * randmult
                     defhpleft = int(defend[3]) - int(atkdmg)
                     if defhpleft <= 0:
                         print 'The defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and died.'
-                        break
+
                     else:
                         print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                        break
+
 
         if atkdmgtype == 'magic':
             if int(distance) <= 8:
@@ -189,17 +189,17 @@ else:
                     atkdmg = 0
                     defhpleft = int(defend[3]) - int(atkdmg)
                     print '\nThe defending', str(defend[2]), 'dodged completely, and still has ',defhpleft,' left!\n'
-                    break
+
                 
                 elif int(defend[8]) >= dodge:
                     atkdmg = (atkdmgmod * randmult)/2
                     defhpleft = int(defend[3]) - int(atkdmg)
                     if defhpleft <= 0:
                         print 'The defending', str(defend[2]), 'partially dodged, but took', atkdmg, 'damage and died.'
-                        break
+
                     else:
                         print '\nThe defending', str(defend[2]), 'partially dodged, and only suffered', atkdmg,'damage, and has ',defhpleft,' left!\n'
-                        break
+
 
                 else:
                     if int(attack[10]) >= crit:
@@ -207,23 +207,22 @@ else:
                         defhpleft = int(defend[3]) - int(atkdmg)
                         if defhpleft <= 0:
                             print 'The defending', str(defend[2]), 'was critted for', atkdmg, 'damage, and died.'
-                            break
+
                         else:
                             print '\nThe defending', str(defend[2]), 'suffered a crit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                            break
+
 
                     else:
                         atkdmg = atkdmgmod * randmult
                         defhpleft = int(defend[3]) - int(atkdmg)
                         if defhpleft <= 0:
                             print 'The defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and died.'
-                            break
+
                         else:
                             print '\nThe defending', str(defend[2]), 'was hit for', atkdmg, 'damage, and has', defhpleft, 'health left!'
-                            break
+
             else:
                 atkdmg = 0
                 defhpleft = int(defend[3]) - int(atkdmg)
                 print '\nThe defending', defend[2], 'was out of range, you noob!'#lmoa nubs
-                break
 

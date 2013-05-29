@@ -1,79 +1,13 @@
-name = 'unknown' #Variable for Player Name
-race = 'u' #Variable for Race of Player
-cclass = 'u' #Variable for the Class of Player Character
-hp = 50 #Base Health for all Chars
-mana = 25 #Base Mana for all Chars
-stamina = 25 #Base Stamina for all Chars
-stre = 5 #Base Strength for all Chars
-agl = 5 #Base Agility for all Chars
-inte = 5 #Base Intelligence for all Chars
-cour = 5 #Base Courage for all Chars
-dex = 5 #Base Dexterity for all Chars
-conc = 5 #Base Concentration for all Chars
-item = 'u' #Player's Weapon of Choice
-name = raw_input('Enter your character's name:\n')
-race = raw_input('Enter race.\n(Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian)\n')
-cclass = raw_input('Enter class.\n(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage)\n')
-race.lower()
-cclass.lower()
-if race == 'human':
-    hp = hp + 5
-    mana = mana
-    stamina = stamina + 15
-    stre = stre + 1
-    agl = agl
-    inte = inte
-    cour = cour + 1
-    dex = dex
-    conc = conc
-if race == 'elf':
-    hp = hp - 5
-    mana = mana + 10
-    stamina = stamina
-    stre = stre - 1
-    agl = agl + 1
-    inte = inte + 2
-    cour = cour - 1
-    dex = dex + 2
-    conc = conc + 1
-if race == 'drow':
-    hp = hp - 5
-    mana = mana + 10
-    stamina = stamina
-    stre = stre - 1
-    agl = agl + 2
-    inte = inte + 1
-    cour = cour
-    dex = dex + 1
-    conc = conc + 1
-if race == 'dwarf':
-    hp = hp + 10
-    mana = mana - 5
-    stamina = stamina + 10
-    stre = stre + 2
-    agl = agl
-    inte = inte - 1
-    cour = cour + 1
-    dex = dex
-    conc = conc
-if race == 'halfling':
-    hp = hp - 10
-    mana = mana
-    stamina = stamina
-    stre = stre - 1
-    agl = agl + 1
-    inte = inte
-    cour = cour - 1
-    dex = dex + 1
-    conc = conc
-if race == 'draconian':
-    hp = hp + 15
-    mana = mana - 10
-    stamina = stamina -5
-    stre = stre + 1
-    agl = agl
-    inte = inte - 1
-    cour = cour
-    dex = dex - 1
-    conc = conc + 1
-print hp,',',mana,',',stamina,',',stre,',',agl,',',inte,',',cour,',',dex,',',conc,'.',
+Ty
+halfling
+scout
+40
+25
+35
+7
+8
+6
+3
+7
+4
+40
