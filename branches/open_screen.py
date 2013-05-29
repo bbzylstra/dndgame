@@ -11,7 +11,12 @@ bgcolor = 0, 0, 0
 LEFT=1
 clock = pygame.time.Clock()
 game_font = pygame.font.Font("freesansbold.ttf",15)
-game=False
+Game=False
+cellNumber=-1
+textBox=pygame.Surface(screen.get_size())
+textBox=textBox.convert()
+game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
+
 while running:
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
@@ -21,7 +26,7 @@ while running:
     elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
         print "You released the left mouse button at (%d, %d)" % event.pos
         if (event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=30 and event.pos[1] <=100) :
-            game=True
+            Game=True
         elif(event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=114 and event.pos[1] <=197) :
             path=os.getcwd()
             os.startfile(path+'\charactercreation.py')
@@ -33,17 +38,25 @@ while running:
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
             running = 0
-    if game==True:
-        while game==True:
+    if Game==True:
+        while Game==True:
             event = pygame.event.poll()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    Game=False
                     break
             x,y=drawScreen.drawScreen(screen,screensize)
             if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
                 xi,yi=event.pos
+                cellNumber=detectSquare.detectSquare(x,y,xi,yi,screensize)
                 print("Cell Number: %d" % detectSquare.detectSquare(x,y,xi,yi,screensize))
-            clock.tick(200)
+                game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
+            screen.blit(game1,(0,screensize[1]-50))
+            pygame.display.update()
+            xi,yi=pygame.mouse.get_pos()
+            game = game_font.render(str(xi)+' '+str(yi), True, (255,0, 0), (0, 0, 0))
+            screen.blit(game,(0,screensize[1]-30))
+            pygame.display.update()
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 30),(467,30), (467, 100),(170,100)],1)
     game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))
@@ -58,5 +71,5 @@ while running:
     game = game_font.render("Exit", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (50,350) )
     pygame.display.flip()
-    clock.tick(200)
+    clock.tick(30)
 pygame.quit()

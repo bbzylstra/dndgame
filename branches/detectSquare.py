@@ -1,6 +1,6 @@
 __author__ = 'Brad'
 def detectSquare(x,y,xi,yi,screensize):
-    cellNumber=-1
+    cellNumber=(-1)
     for i,w in enumerate(y):
         for z,h in enumerate(x):
             if ((xi>(screensize[0]-screensize[0]/10)) or yi>(screensize[1]-screensize[1]/10)):
