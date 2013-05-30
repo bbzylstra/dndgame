@@ -27,5 +27,4 @@ def drawScreen(screen,screensize):
         pygame.draw.line(screen,color,(x[i],borderOffset),(x[i],y[sizey]),1)
     for i in range(0,sizey+1):
         pygame.draw.line(screen,color,(borderOffset,y[i]),(x[sizex],y[i]),1)
-    pygame.display.update()
     return x,y,cellNumbers

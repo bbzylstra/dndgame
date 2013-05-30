@@ -12,8 +12,7 @@ LEFT=1
 clock = pygame.time.Clock()
 game_font = pygame.font.Font("freesansbold.ttf",15)
 Game=False
-cellNumber=-1
-cellNumber={}
+cellNumber=0
 textBox=pygame.Surface((500,50))
 textBox=textBox.convert()
 img3=pygame.image.load("swordsman-on-tile.png")
@@ -43,8 +42,8 @@ while running:
         textBox.fill((0,0,0))
         screen.blit(textBox,(0,screensize[1]-50))
         pygame.display.update()
-        x,y,cellNumbers=drawScreen.drawScreen(screen,screensize)
         while Game==True:
+            x,y,cellNumbers=drawScreen.drawScreen(screen,screensize)
             event = pygame.event.poll()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
@@ -55,7 +54,7 @@ while running:
                 cellNumber=detectSquare.detectSquare(x,y,xi,yi,screensize)
                 print("Cell Number: %d" % detectSquare.detectSquare(x,y,xi,yi,screensize))
                 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
-            drawToScreen.drawToScreen(x,y,img3,screen,2,cellNumbers)
+            drawToScreen.drawToScreen(x,y,img3,screen,cellNumber,cellNumbers)
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))
             textBox.blit(game1,(0,0))
@@ -65,7 +64,6 @@ while running:
             textBox.blit(game,(0,25))
             screen.blit(textBox,(0,screensize[1]-50))
             pygame.display.update()
-        pygame.display.update()
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 30),(467,30), (467, 100),(170,100)],1)
     game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))
