@@ -7,5 +7,4 @@ def drawToScreen(x,y,img,screen,squareNumber,squareDict):
     else:
         xDraw,yDraw=squareDict[squareNumber][0],squareDict[squareNumber][1]
         screen.blit(img,(xDraw+1,yDraw+1))
-    pygame.display.update()
     return None

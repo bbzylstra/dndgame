@@ -7,8 +7,8 @@ def drawScreen(screen,screensize):
     x=[borderOffset]
     y=[borderOffset]
     screen.fill((bgcolor))
-    sizex=5
-    sizey=5
+    sizex=18
+    sizey=12
     color = 0,255,0
     cellNumbers={}
     maxX=int(screensize[0]-screensize[0]/5)-borderOffset
