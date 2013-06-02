@@ -33,10 +33,11 @@ def characterCreate(screen):
     #profs[15]= dark majyyks
     dispBox=pygame.Surface((320,240))
     running=True
-    name=GraphicInput.ask(screen,'Enter Name: ',(500,300))
+    name=GraphicInput.ask(screen,'Enter Name: ',(300,300))
     pygame.display.update()
+    screen.fill((0,0,0))
     while running:
-        race=GraphicInput.ask(screen,'Enter race.(Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian): ',(500,400))
+        race=GraphicInput.ask(screen,'Enter race.(Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian): ',(300,300))
         pygame.display.update()
         race = race.lower()
         print race
@@ -112,10 +113,10 @@ def characterCreate(screen):
             break
         else:
             print "Not understood, please try again: "
-
+    screen.fill((0,0,0))
 
     while running:
-        cclass=GraphicInput.ask(screen,'Enter class.(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage):',(500,500))
+        cclass=GraphicInput.ask(screen,'Enter class.(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage):',(300,300))
         pygame.display.update()
         cclass = cclass.lower()
 
@@ -265,21 +266,24 @@ def characterCreate(screen):
             break
         else:
             print "Not understood, please try again "
+    screen.fill((0,0,0))
     while running:
         event=pygame.event.poll()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 break
-        GraphicInput.display_message(screen,'name ='+name,(0,0))
-        GraphicInput.display_message(screen,'hp ='+str(hp),(0,25))
-        GraphicInput.display_message(screen,'mana ='+str(mana),(0,50))
-        GraphicInput.display_message(screen,'stamina ='+str(stamina),(0,75))
-        GraphicInput.display_message(screen,'strength ='+str(stre),(0,100))
-        GraphicInput.display_message(screen,'agility ='+str(agl),(0,125))
-        GraphicInput.display_message(screen,'intelligence ='+str(inte),(0,150))
-        GraphicInput.display_message(screen,'courage ='+str(cour),(0,175))
-        GraphicInput.display_message(screen,'dexterity ='+str(dex),(0,200))
-        GraphicInput.display_message(screen,'concentration ='+str(conc),(0,225))
+        GraphicInput.display_message(screen,'name = '+name,(0,0))
+        GraphicInput.display_message(screen,'hp = '+str(hp),(0,25))
+        GraphicInput.display_message(screen,'mana = '+str(mana),(0,50))
+        GraphicInput.display_message(screen,'stamina = '+str(stamina),(0,75))
+        GraphicInput.display_message(screen,'strength = '+str(stre),(0,100))
+        GraphicInput.display_message(screen,'agility = '+str(agl),(0,125))
+        GraphicInput.display_message(screen,'intelligence = '+str(inte),(0,150))
+        GraphicInput.display_message(screen,'courage = '+str(cour),(0,175))
+        GraphicInput.display_message(screen,'dexterity = '+str(dex),(0,200))
+        GraphicInput.display_message(screen,'concentration = '+str(conc),(0,225))
+        GraphicInput.display_message(screen,'race = '+race,(0,250))
+        GraphicInput.display_message(screen,'class = '+cclass,(0,275))
     pathname = os.path.abspath(os.getcwd()+"/%s/" % name)
     if not os.path.exists(pathname): os.makedirs(pathname)
     f=open(pathname+"/stats.wagh",'w')
