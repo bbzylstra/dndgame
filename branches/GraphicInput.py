@@ -5,8 +5,12 @@ from pygame.locals import *
 def get_key():
     while 1:
         event = pygame.event.poll()
+        mods=pygame.key.get_mods()
         if event.type == KEYDOWN:
-            return event.key
+            if mods and KMOD_SHIFT:
+                return event.key-32
+            else:
+                return event.key
         else:
             pass
 
@@ -45,6 +49,8 @@ def ask(screen, question,(x,y)):
             current_string.append("_")
         elif inkey <= 127:
             current_string.append(chr(inkey))
+            print inkey
         screen.fill((0,0,0))
         display_box(screen, question + string.join(current_string,""),(x,y))
+    print str(current_string)
     return string.join(current_string,"")
