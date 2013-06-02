@@ -43,7 +43,7 @@ def characterCreate(screen):
         print race
         if race=='false':
             running=False
-            break
+            return None
         if race == 'human':
             hp = hp + 5
             mana = mana + 5
@@ -119,9 +119,9 @@ def characterCreate(screen):
         cclass=GraphicInput.ask(screen,'Enter class.(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage):',(300,300))
         pygame.display.update()
         cclass = cclass.lower()
-
         if cclass=='false':
             running=False
+            return None
             break
         if cclass == 'swordsman':
             hp = hp + 20
@@ -270,7 +270,7 @@ def characterCreate(screen):
     while running:
         event=pygame.event.poll()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
+            if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
                 break
         GraphicInput.display_message(screen,'name = '+name,(0,0))
         GraphicInput.display_message(screen,'hp = '+str(hp),(0,25))
