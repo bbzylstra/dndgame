@@ -112,7 +112,7 @@ def characterCreate(screen):
             conc = conc + 1
             break
         else:
-            print "Not understood, please try again: "
+            screen.fill((0,0,0))
     screen.fill((0,0,0))
 
     while running:
@@ -265,7 +265,7 @@ def characterCreate(screen):
             profs[13] = True
             break
         else:
-            print "Not understood, please try again "
+            screen.fill((0,0,0))
     screen.fill((0,0,0))
     while running:
         event=pygame.event.poll()
@@ -285,8 +285,9 @@ def characterCreate(screen):
         GraphicInput.display_message(screen,'race = '+race,(0,250))
         GraphicInput.display_message(screen,'class = '+cclass,(0,275))
     pathname = os.path.abspath(os.getcwd()+"/%s/" % name)
-    if not os.path.exists(pathname): os.makedirs(pathname)
-    f=open(pathname+"/stats.wagh",'w')
+    if not os.path.exists(pathname):
+        os.makedirs(pathname)
+    f=open(pathname+"\stats.wagh",'w')
     f.write(name)
     f.write('\n')
     f.write(race)
