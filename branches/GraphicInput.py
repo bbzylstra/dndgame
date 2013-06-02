@@ -18,6 +18,13 @@ def display_box(screen, message,(x,y)):
         screen.blit(fontobject.render(message, 1, (255,0,0),(0,0,0)),
             (x+50, y +25))
     pygame.display.update()
+def display_message(screen, message,(x,y)):
+    "Print a message in a box in the middle of the screen"
+    fontobject = pygame.font.Font("freesansbold.ttf",13)
+    if len(message) != 0:
+        screen.blit(fontobject.render(message, 1, (255,0,0),(0,0,0)),
+            (x,y))
+    pygame.display.update()
 
 def ask(screen, question,(x,y)):
     "ask(screen, question) -> answer"
