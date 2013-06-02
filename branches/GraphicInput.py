@@ -11,12 +11,13 @@ def get_key():
             pass
 
 def display_box(screen, message,(x,y)):
+    xi,yi=screen.get_size()
     "Print a message in a box in the middle of the screen"
-    fontobject = pygame.font.Font("freesansbold.ttf",13)
-    pygame.draw.polygon(screen, (255,0,0),[(x,y),(x+1000,y),(x+1000,y+50),(x,y+50)],1)
+    fontobject = pygame.font.Font("freesansbold.ttf",yi/70)
+    pygame.draw.polygon(screen, (255,0,0),[(x,y),(x+xi/1.5,y),(x+xi/1.5,y+yi/25),(x,y+yi/25)],1)
     if len(message) != 0:
         screen.blit(fontobject.render(message, 1, (255,0,0),(0,0,0)),
-            (x+50, y +25))
+            (x+xi/70, y +yi/80))
     pygame.display.update()
 def display_message(screen, message,(x,y)):
     "Print a message in a box in the middle of the screen"
