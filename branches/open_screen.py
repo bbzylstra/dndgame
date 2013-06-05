@@ -65,6 +65,8 @@ while running:
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 30),(467,30), (467, 100),(170,100)],1)
     game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))
+    screen.blit(textBox,(0,screensize[1]-50))
+    screen.blit(textBox,(0,screensize[0]-50))
     screen.blit(game, (253,50) )
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 114),(467,114), (467, 197),(170,197)],1)
     game = game_font.render("Character Creation", True, (255,0, 0), (0, 0, 0))
