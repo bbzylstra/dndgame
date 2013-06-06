@@ -68,7 +68,7 @@ while running:
     screen.blit(game,(screensize[0]*.46658,screensize[1]*.0799))
     pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.1244,screensize[1]*.02),(screensize[0]*.35139,screensize[1]*.02),(screensize[0]*.35139,screensize[1]*.15625),(screensize[0]*.1244,screensize[1]*.15625)],1)
     game = game_font.render("Create A New Character", True, (255,0, 0), (0, 0, 0))
-    screen.blit(game, (253,156) )
+    screen.blit(game,(screensize[0]*.16065,screensize[1]*.0799))
     pygame.draw.polygon(screen, (255, 0, 0), [(370, 380),(370,330), (590, 330),(590,380)],1)
     game = game_font.render("1v1 Combat Simulator", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (375,350) )
