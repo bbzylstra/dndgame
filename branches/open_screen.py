@@ -30,7 +30,7 @@ while running:
             Game=True
         elif(event.pos[0] >=screensize[0]*.1244 and event.pos[0] <=screensize[0]*.63) and (event.pos[1] >=screensize[1]*.02 and event.pos[1] <=screensize[1]*.15625) :
             charactercreation.characterCreate(screen)
-        elif (event.pos[0] >=5 and event.pos[0] <=150) and (event.pos[1] >=330 and event.pos[1] <=380) :
+        elif (event.pos[0] >=screensize[0]*.0073 and event.pos[0] <=screensize[0]*.106149) and (event.pos[1] >=screensize[1]*.8905 and event.pos[1] <=screensize[1]*.990885) :
             running=0
         elif (event.pos[0] >=370 and event.pos[0] <=590) and (event.pos[1] >=330 and event.pos[1] <=380) :
             comtest.combatsim(screen)
@@ -73,9 +73,9 @@ while running:
     pygame.draw.polygon(screen, (255, 0, 0), [(370, 380),(370,330), (590, 330),(590,380)],1)
     game = game_font.render("1v1 Combat Simulator", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (375,350) )
-    pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.0073,screensize[1]*.8905),(screensize[0]*.106149,screensize[1]*.8905), (screensize[0]*.106149,screensize[1]*.990885),(screensize[0]*.0073,screensize[1]*.990885)],1)
+    pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.0073,screensize[1]*0.9375),(screensize[0]*.106149,screensize[1]*0.9375), (screensize[0]*.106149,screensize[1]*.990885),(screensize[0]*.0073,screensize[1]*.990885)],1)
     game = game_font.render("Exit", True, (255,0, 0), (0, 0, 0))
-    screen.blit(game, (screensize[0]*.051244,screensize[1]*.44414))
+    screen.blit(game, (screensize[0]*.034407,screensize[1]*0.96484375))
     pygame.display.flip()
     clock.tick(30)
 pygame.quit()
