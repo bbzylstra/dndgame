@@ -14,9 +14,10 @@ game_font = pygame.font.Font("freesansbold.ttf",16)
 Game=False
 cellNumber=0
 current_path=os.getcwd()
+sprite_path=current_path+'/sprites/'
 textBox=pygame.Surface((500,50))
 textBox=textBox.convert()
-img3=pygame.image.load(current_path+'/sprites/swordsman-on-tile.png')
+img3=pygame.image.load(sprite_path+'swordsman-on-tile.png')
 
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
 while running:
