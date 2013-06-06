@@ -37,7 +37,7 @@ def characterCreate(screen):
     pygame.display.update()
     screen.fill((0,0,0))
     while running:
-        race=GraphicInput.ask(screen,'Enter race.(Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian): ',(300,300))
+        race=GraphicInput.ask(screen,'Choose any of the following: Human, Elf, Drow, Dwarf, Halfling or Draconian): ',(300,300))
         pygame.display.update()
         race = race.lower()
         print race
