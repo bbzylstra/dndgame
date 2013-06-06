@@ -116,7 +116,7 @@ def characterCreate(screen):
     screen.fill((0,0,0))
 
     while running:
-        cclass=GraphicInput.ask(screen,'Enter class.(Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage):',(300,300))
+        cclass=GraphicInput.ask(screen,'Choose any of the following: Swordsman, Berserker, Knight, Scout, Hunter, Ranger, Skirmisher, Priest, Sorcerer, or Mage',(300,300))
         pygame.display.update()
         cclass = cclass.lower()
         if cclass=='false':
