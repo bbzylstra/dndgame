@@ -10,7 +10,7 @@ running =1
 bgcolor = 0, 0, 0
 LEFT=1
 clock = pygame.time.Clock()
-game_font = pygame.font.Font("freesansbold.ttf",15)
+game_font = pygame.font.Font("freesansbold.ttf",16)
 Game=False
 cellNumber=0
 textBox=pygame.Surface((500,50))
@@ -65,7 +65,7 @@ while running:
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.4033,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.16),(screensize[0]*.4033,screensize[1]*.16)],1)
     game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))
-    screen.blit(game,(screensize[0]*.5,screensize[1]*.1))
+    screen.blit(game,(screensize[0]*.49658,screensize[1]*.0799))
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 114),(467,114), (467, 197),(170,197)],1)
     game = game_font.render("Character Creation", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (253,156) )
