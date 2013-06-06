@@ -333,4 +333,3 @@ class enemycreation(object):
     f.write('\n')
     f.write(str(conc))
     f.close()
-m=

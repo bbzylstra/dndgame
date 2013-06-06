@@ -1,7 +1,8 @@
 __author__ = 'Brad'
 def drawScreen(screen,screensize):
-    import pygame
-    img=pygame.image.load('tile50x50.png')
+    import pygame,os
+    current_path=os.getcwd()
+    img=pygame.image.load(current_path+'/sprites/tile50x50.png')
     bgcolor = 0, 0, 0
     borderOffset=20
     x=[borderOffset]
