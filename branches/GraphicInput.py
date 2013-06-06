@@ -7,7 +7,7 @@ def get_key():
         event = pygame.event.poll()
         mods=pygame.key.get_mods()
         if event.type == KEYDOWN:
-            if mods and KMOD_SHIFT:
+            if (mods and (KMOD_SHIFT or KMOD_CAPS)) and (not(K_BACKSPACE==event.key or K_RETURN==event.key or K_MINUS==event.key)):
                 return event.key-32
             else:
                 return event.key

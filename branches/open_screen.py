@@ -16,6 +16,7 @@ cellNumber=0
 textBox=pygame.Surface((500,50))
 textBox=textBox.convert()
 img3=pygame.image.load("swordsman-on-tile.png")
+
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
 while running:
     event = pygame.event.poll()

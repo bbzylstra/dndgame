@@ -34,6 +34,11 @@ def characterCreate(screen):
     dispBox=pygame.Surface((320,240))
     running=True
     name=GraphicInput.ask(screen,'Enter Name: ',(300,300))
+    if name == 'FALSE':
+        running=False
+        return None
+    else:
+        pass
     pygame.display.update()
     screen.fill((0,0,0))
     while running:
@@ -273,7 +278,7 @@ def characterCreate(screen):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
                 break
-        z=(yi/7)-(yi/8)
+        z=(yi/6)-(yi/7)
         GraphicInput.display_message(screen,'name = '+name+'\n\n',(0,0))
         GraphicInput.display_message(screen,'hp = '+str(hp)+'\n\n',(0,(z)*1))
         GraphicInput.display_message(screen,'mana = '+str(mana)+'\n\n',(0,((z)*2)))
