@@ -25,7 +25,7 @@ while running:
         x, y = event.pos
     elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
         print "You released the left mouse button at (%d, %d)" % event.pos
-        if (event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=30 and event.pos[1] <=100) :
+        if (event.pos[0] >=screensize[0]*.4033 and event.pos[0] <=screensize[0]*.63) and (event.pos[1] >=screensize[1]*.02 and event.pos[1] <=screensize[1]*.16) :
             Game=True
         elif(event.pos[0] >=170 and event.pos[0] <=467) and (event.pos[1] >=114 and event.pos[1] <=197) :
             charactercreation.characterCreate(screen)
