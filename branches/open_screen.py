@@ -63,7 +63,7 @@ while running:
             screen.blit(textBox,(0,screensize[1]-50))
             pygame.display.update()
     screen.fill((bgcolor))
-    pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.4033,screensize[1]*.02),((screensize[0]*.4033,screensize[1]*.16), (screensize[0]*.63,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.16))],1)
+    pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.4033,screensize[1]*.02),(screensize[0]*.4033,screensize[1]*.16), (screensize[0]*.63,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.16)],1)
     game = game_font.render("Game", True, (255,0, 0), (0, 0, 0))
     screen.blit(game,(screensize[0]*.5,screensize[1]*.1))
     pygame.draw.polygon(screen, (255, 0, 0), [(170, 114),(467,114), (467, 197),(170,197)],1)
