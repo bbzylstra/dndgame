@@ -1,6 +1,6 @@
 __author__ = 'Brad'
 import ctypes
-import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest,Sprite
+import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest,Sprite,spriteSelected
 from decimal import Decimal
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
@@ -20,6 +20,8 @@ textBox=textBox.convert()
 img3=sprite_path+'swordsman-on-tile.png'
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
 cellnumbers2d={}
+cellNumber2d=(0,0)
+spriteselected=''
 while running:
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
@@ -43,7 +45,15 @@ while running:
         textBox.fill((0,0,0))
         screen.blit(textBox,(0,screensize[1]-50))
         pygame.display.update()
-
+        textBox.fill((0,0,0))
+        game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
+        textBox.blit(game1,(0,0))
+        screen.blit(textBox,(0,screensize[1]-50))
+        x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
+        ai1= Sprite.Ai_Sprite(img3,cellNumbers,0,0,screen,cellnumbers2d)
+        ai2= Sprite.Ai_Sprite(img3,cellNumbers,5,10,screen,cellnumbers2d)
+        ai_group=pygame.sprite.Group()
+        ai_group.add(ai1,ai2)
         while Game==True:
             x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
             event = pygame.event.poll()
@@ -54,9 +64,16 @@ while running:
             if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
                 xi,yi=event.pos
                 cellNumber,cellNumber2d=detectSquare.detectSquare(x,y,xi,yi,screensize)
+                spriteselected=spriteSelected.spriteSelected(cellNumber2d,ai_group)
+                if spriteselected != None:
+                    spriteselected.selected=True
+                for v in ai_group.sprites():
+                    if v.selected==True and spriteselected==None:
+                        v.moveSprite(cellNumber2d)
                 print("Cell Number: " + str(cellNumber2d))
                 game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
-            ai1= Sprite.Ai_Sprite(img3,cellNumbers,x,y,screen,cellNumber,cellnumbers2d)
+            ai2.update()
+            ai1.update()
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))
             textBox.blit(game1,(0,0))
@@ -66,6 +83,7 @@ while running:
             textBox.blit(game,(0,25))
             screen.blit(textBox,(0,screensize[1]-50))
             pygame.display.update()
+            clock.tick(100)
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.4033,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.16),(screensize[0]*.4033,screensize[1]*.16)],1)
     game = game_font.render("Launch A Game", True, (255,0, 0), (0, 0, 0))
@@ -80,5 +98,5 @@ while running:
     game = game_font.render("Exit", True, (255,0, 0), (0, 0, 0))
     screen.blit(game, (screensize[0]*.034407,screensize[1]*0.96484375))
     pygame.display.flip()
-    clock.tick(30)
+    clock.tick(100)
 pygame.quit()
