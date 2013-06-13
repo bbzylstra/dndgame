@@ -17,7 +17,8 @@ current_path=os.getcwd()
 sprite_path=current_path+'/sprites/'
 textBox=pygame.Surface((500,50))
 textBox=textBox.convert()
-img3=sprite_path+'swordsman-on-tile.png'
+swordsman=sprite_path+'swordsman-on-tile.png'
+mage=sprite_path+'human-mage.png'
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
 cellnumbers2d={}
 cellNumber2d=(0,0)
@@ -50,8 +51,8 @@ while running:
         textBox.blit(game1,(0,0))
         screen.blit(textBox,(0,screensize[1]-50))
         x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
-        ai1= Sprite.Ai_Sprite(img3,cellNumbers,0,0,screen,cellnumbers2d)
-        ai2= Sprite.Ai_Sprite(img3,cellNumbers,5,10,screen,cellnumbers2d)
+        ai1= Sprite.Ai_Sprite(swordsman,cellNumbers,0,0,screen,cellnumbers2d)
+        ai2= Sprite.Ai_Sprite(mage,cellNumbers,5,10,screen,cellnumbers2d)
         ai_group=pygame.sprite.Group()
         ai_group.add(ai1,ai2)
         while Game==True:
@@ -67,6 +68,11 @@ while running:
                 spriteselected=spriteSelected.spriteSelected(cellNumber2d,ai_group)
                 if spriteselected != None:
                     spriteselected.selected=True
+                for i in ai_group.sprites():
+                    for z in ai_group.sprites():
+                        if i.selected==True and z.selected==True and i != z:
+                            i.selected=False
+                            z.selected=False
                 for v in ai_group.sprites():
                     if v.selected==True and spriteselected==None and cellNumber2d != [-1,-1]:
                         v.moveSprite(cellNumber2d)
