@@ -17,8 +17,13 @@ current_path=os.getcwd()
 sprite_path=current_path+'/sprites/'
 textBox=pygame.Surface((500,50))
 textBox=textBox.convert()
+selectedSurf=pygame.Surface((500,50))
+selectedSurf=selectedSurf.convert()
+selectedSurf.fill((0,0,255))
 swordsman=sprite_path+'swordsman-on-tile.png'
 mage=sprite_path+'human-mage.png'
+ranger=sprite_path+'human-ranger.png'
+knight=sprite_path+'human-knight.png'
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
 cellnumbers2d={}
 cellNumber2d=(0,0)
@@ -53,33 +58,53 @@ while running:
         x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
         ai1= Sprite.Ai_Sprite(swordsman,cellNumbers,0,0,screen,cellnumbers2d)
         ai2= Sprite.Ai_Sprite(mage,cellNumbers,5,10,screen,cellnumbers2d)
+        ai3= Sprite.Ai_Sprite(ranger,cellNumbers,10,5,screen,cellnumbers2d)
+        ai4= Sprite.Ai_Sprite(knight,cellNumbers,5,5,screen,cellnumbers2d)
         ai_group=pygame.sprite.Group()
-        ai_group.add(ai1,ai2)
+        ai_group.add(ai1,ai2,ai3,ai4)
+        selectedSurf=pygame.transform.scale(selectedSurf,(int(cellnumbers2d[1,1][0])-21,int(cellnumbers2d[1,1][1])-21))
+
         while Game==True:
-            x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
+            drawScreen.drawScreen(screen,screensize)
             event = pygame.event.poll()
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Game=False
                     break
+
             if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
                 xi,yi=event.pos
                 cellNumber,cellNumber2d=detectSquare.detectSquare(x,y,xi,yi,screensize)
                 spriteselected=spriteSelected.spriteSelected(cellNumber2d,ai_group)
                 if spriteselected != None:
-                    spriteselected.selected=True
+                    if spriteselected.selected==True:
+                        spriteselected=None
+
+                if spriteselected != None:
+                        spriteselected.selected=True
+
                 for i in ai_group.sprites():
                     for z in ai_group.sprites():
                         if i.selected==True and z.selected==True and i != z:
                             i.selected=False
                             z.selected=False
+
                 for v in ai_group.sprites():
                     if v.selected==True and spriteselected==None and cellNumber2d != [-1,-1]:
                         v.moveSprite(cellNumber2d)
+
                 print("Cell Number: " + str(cellNumber2d))
                 game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
-            ai2.update()
-            ai1.update()
+
+
+            for z in ai_group.sprites():
+                if z.selected==True:
+                    drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
+                    z.update()
+                else:
+                    z.update()
+
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))
             textBox.blit(game1,(0,0))
@@ -90,6 +115,7 @@ while running:
             screen.blit(textBox,(0,screensize[1]-50))
             pygame.display.update()
             clock.tick(100)
+
     screen.fill((bgcolor))
     pygame.draw.polygon(screen, (255, 0, 0), [(screensize[0]*.4033,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.02),(screensize[0]*.63,screensize[1]*.16),(screensize[0]*.4033,screensize[1]*.16)],1)
     game = game_font.render("Launch A Game", True, (255,0, 0), (0, 0, 0))

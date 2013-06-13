@@ -37,3 +37,4 @@ def drawScreen(screen,screensize):
 #x is a list of the left most borders for each square
 #y is a list of the top borders for each square.
 #cellNumbers is a dict of the top left points for each square number
+#cellNumbers2d is a 2d dict of the squares with the x,y coord for top left point
