@@ -68,7 +68,7 @@ while running:
                 if spriteselected != None:
                     spriteselected.selected=True
                 for v in ai_group.sprites():
-                    if v.selected==True and spriteselected==None:
+                    if v.selected==True and spriteselected==None and cellNumber2d != [-1,-1]:
                         v.moveSprite(cellNumber2d)
                 print("Cell Number: " + str(cellNumber2d))
                 game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
