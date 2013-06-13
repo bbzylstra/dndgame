@@ -1,7 +1,7 @@
 __author__ = 'Brad'
-def drawToScreen(x,y,img,screen,squareNumber,squareDict):
+def drawToScreen(img,screen,squareNumber,squareDict):
     import pygame
-    img=pygame.transform.scale(img,(int(x[1]-21),int(y[1]-21)))
+    img=pygame.transform.scale(img,(int(squareDict[19][0])-21,int(squareDict[19][1])-21))
     if squareNumber == -1:
         None
     else:

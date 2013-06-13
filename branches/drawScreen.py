@@ -13,6 +13,7 @@ def drawScreen(screen,screensize):
     sizey=12
     color = 0,255,0
     cellNumbers={}
+    cellNumbers2d={}
     maxX=int(screensize[0]-screensize[0]/5)-borderOffset
     maxY=int(screensize[1]-screensize[1]/5)-borderOffset
     for i in range(0,sizey):
@@ -29,4 +30,10 @@ def drawScreen(screen,screensize):
         pygame.draw.line(screen,color,(x[i],borderOffset),(x[i],y[sizey]),1)
     for i in range(0,sizey+1):
         pygame.draw.line(screen,color,(borderOffset,y[i]),(x[sizex],y[i]),1)
-    return x,y,cellNumbers
+    for c,i in enumerate(y):
+        for f,z in enumerate(x):
+            cellNumbers2d[f,c]=(z,i)
+    return x,y,cellNumbers,cellNumbers2d
+#x is a list of the left most borders for each square
+#y is a list of the top borders for each square.
+#cellNumbers is a dict of the top left points for each square number

@@ -1,6 +1,6 @@
 __author__ = 'Brad'
 import ctypes
-import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest
+import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest,Sprite
 from decimal import Decimal
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
@@ -17,9 +17,9 @@ current_path=os.getcwd()
 sprite_path=current_path+'/sprites/'
 textBox=pygame.Surface((500,50))
 textBox=textBox.convert()
-img3=pygame.image.load(sprite_path+'swordsman-on-tile.png')
-
+img3=sprite_path+'swordsman-on-tile.png'
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
+cellnumbers2d={}
 while running:
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
@@ -43,8 +43,9 @@ while running:
         textBox.fill((0,0,0))
         screen.blit(textBox,(0,screensize[1]-50))
         pygame.display.update()
+
         while Game==True:
-            x,y,cellNumbers=drawScreen.drawScreen(screen,screensize)
+            x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
             event = pygame.event.poll()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
@@ -52,10 +53,10 @@ while running:
                     break
             if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
                 xi,yi=event.pos
-                cellNumber=detectSquare.detectSquare(x,y,xi,yi,screensize)
-                print("Cell Number: %d" % detectSquare.detectSquare(x,y,xi,yi,screensize))
-                game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
-            drawToScreen.drawToScreen(x,y,img3,screen,cellNumber,cellNumbers)
+                cellNumber,cellNumber2d=detectSquare.detectSquare(x,y,xi,yi,screensize)
+                print("Cell Number: " + str(cellNumber2d))
+                game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
+            ai1= Sprite.Ai_Sprite(img3,cellNumbers,x,y,screen,cellNumber,cellnumbers2d)
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))
             textBox.blit(game1,(0,0))
