@@ -97,12 +97,11 @@ while running:
                 print("Cell Number: " + str(cellNumber2d))
                 game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
 
-
+            ai_group.update()
             for z in ai_group.sprites():
                 if z.selected==True:
                     z.select()
-                    drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
-            ai_group.update()
+                    #drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))
             textBox.blit(game1,(0,0))

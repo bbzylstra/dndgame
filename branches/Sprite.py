@@ -13,7 +13,7 @@ class Ai_Sprite(pygame.sprite.Sprite):
         self.rect=self.image.get_rect()
         self.moveSurf=pygame.Surface((500,50))
         self.moveSurf.convert_alpha()
-        self.moveSurf.fill((0,0,255,))
+        self.moveSurf.fill((0,0,0))
         self.moveSurf=pygame.transform.scale(self.moveSurf,(int(self.cellnumbers2d[1,1][0])-21,int(self.cellnumbers2d[1,1][1])-21))
         self.moveSurf.set_alpha(100)
         self.selected=False
@@ -30,16 +30,14 @@ class Ai_Sprite(pygame.sprite.Sprite):
                     pass
                 else:
                     ydist=self.movedistance-(z+i)
-                #drawToScreen.drawToScreen(self.moveSurf,self.screen,(self.squareNumber2d[0]+i,self.squareNumber2d[1]+ydist),self.cellnumbers2d)
-                #drawToScreen.drawToScreen(self.moveSurf,self.screen,(self.squareNumber2d[0]-ydist,self.squareNumber2d[1]-z),self.cellnumbers2d)
-                #drawToScreen.drawToScreen(self.moveSurf,self.screen,(self.squareNumber2d[0]-i,self.squareNumber2d[1]+ydist),self.cellnumbers2d)
-                #drawToScreen.drawToScreen(self.moveSurf,self.screen,(self.squareNumber2d[0]+ydist,self.squareNumber2d[1]-z),self.cellnumbers2d)
                 self.movecells.append((self.squareNumber2d[0]+i,self.squareNumber2d[1]+ydist))
                 self.movecells.append((self.squareNumber2d[0]-ydist,self.squareNumber2d[1]-z))
                 self.movecells.append((self.squareNumber2d[0]-i,self.squareNumber2d[1]+ydist))
                 self.movecells.append((self.squareNumber2d[0]+ydist,self.squareNumber2d[1]-z))
-        for i in set(self.movecells):
-            drawToScreen.drawToScreen(self.moveSurf,self.screen,i,self.cellnumbers2d)
+        self.movecells=set(self.movecells)
+        for i in self.cellnumbers2d:
+            if i not in self.movecells:
+                drawToScreen.drawToScreen(self.moveSurf,self.screen,i,self.cellnumbers2d)
 
     def update(self):
         drawToScreen.drawToScreen(self.image,self.screen,self.squareNumber2d,self.cellnumbers2d)
