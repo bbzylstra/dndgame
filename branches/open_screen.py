@@ -100,11 +100,9 @@ while running:
 
             for z in ai_group.sprites():
                 if z.selected==True:
+                    z.select()
                     drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
-                    z.update()
-                else:
-                    z.update()
-
+            ai_group.update()
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))
             textBox.blit(game1,(0,0))
