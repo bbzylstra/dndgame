@@ -1,7 +1,8 @@
 __author__ = 'Brad'
-import pygame,drawScreen,drawToScreen
+import pygame,drawScreen,drawToScreen,os
 class Ai_Sprite(pygame.sprite.Sprite):
     def __init__(self,imgpath,cellnumbers,x,y,screen,cellnumbers2d):
+        dir= [name for name in os.listdir(".") if os.path.isdir(name)]
         self.movedistance=5
         pygame.sprite.Sprite.__init__(self)
         self.screen=screen
