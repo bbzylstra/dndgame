@@ -33,6 +33,10 @@ def drawScreen(screen,screensize):
     for c,i in enumerate(y):
         for f,z in enumerate(x):
             cellNumbers2d[f,c]=(z,i)
+    game_font = pygame.font.Font("freesansbold.ttf",16)
+    pygame.draw.polygon(screen,color,[(screensize[0]/1.2,screensize[1]/1.1),(screensize[0]-1,screensize[1]/1.1),(screensize[0]-1,screensize[1]-1),(screensize[0]/1.2,screensize[1]-1)],1)
+    game1 = game_font.render("End Turn ", True, (255,0, 0), (0, 0, 0))
+    screen.blit(game1,((screensize[0]/1.127,screensize[1]/1.05)))
     return x,y,cellNumbers,cellNumbers2d
 #x is a list of the left most borders for each square
 #y is a list of the top borders for each square.

@@ -56,12 +56,16 @@ while running:
         textBox.blit(game1,(0,0))
         screen.blit(textBox,(0,screensize[1]-50))
         x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
-        ai1= Sprite.Ai_Sprite(swordsman,cellNumbers,0,0,screen,cellnumbers2d)
-        ai2= Sprite.Ai_Sprite(mage,cellNumbers,5,10,screen,cellnumbers2d)
-        ai3= Sprite.Ai_Sprite(ranger,cellNumbers,10,5,screen,cellnumbers2d)
-        ai4= Sprite.Ai_Sprite(knight,cellNumbers,5,5,screen,cellnumbers2d)
+        ai1= Sprite.Ai_Sprite(swordsman,cellNumbers,screen,cellnumbers2d)
+        ai2= Sprite.Ai_Sprite(mage,cellNumbers,screen,cellnumbers2d)
+        ai3= Sprite.Ai_Sprite(ranger,cellNumbers,screen,cellnumbers2d)
+        ai4= Sprite.Ai_Sprite(knight,cellNumbers,screen,cellnumbers2d)
         ai_group=pygame.sprite.Group()
         ai_group.add(ai1,ai2,ai3,ai4)
+        ai1.placeSprite((1,0))
+        ai2.placeSprite((5,5))
+        ai3.placeSprite((7,10))
+        ai4.placeSprite((9,1))
         selectedSurf=pygame.transform.scale(selectedSurf,(int(cellnumbers2d[1,1][0])-21,int(cellnumbers2d[1,1][1])-21))
 
         while Game==True:
@@ -75,6 +79,9 @@ while running:
 
             if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
                 xi,yi=event.pos
+                if xi>screensize[0]/1.2 and yi> screensize[1]/1.1:
+                    for z in ai_group.sprites():
+                        z.newTurn()
                 cellNumber,cellNumber2d=detectSquare.detectSquare(x,y,xi,yi,screensize)
                 spriteselected=spriteSelected.spriteSelected(cellNumber2d,ai_group)
                 if spriteselected != None:
@@ -92,7 +99,7 @@ while running:
 
                 for v in ai_group.sprites():
                     if v.selected==True and spriteselected==None and cellNumber2d != [-1,-1]:
-                        v.moveSprite(cellNumber2d)
+                        v.moveSprite(cellNumber2d,ai_group)
 
                 print("Cell Number: " + str(cellNumber2d))
                 game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
