@@ -24,6 +24,7 @@ swordsman=sprite_path+'swordsman-on-tile.png'
 mage=sprite_path+'human-mage.png'
 ranger=sprite_path+'human-ranger.png'
 knight=sprite_path+'human-knight.png'
+orcKnight=sprite_path+'ork_knight.png'
 game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0, 0, 0))
 cellnumbers2d={}
 cellNumber2d=(0,0)
@@ -60,12 +61,14 @@ while running:
         ai2= Sprite.Ai_Sprite(mage,cellNumbers,screen,cellnumbers2d)
         ai3= Sprite.Ai_Sprite(ranger,cellNumbers,screen,cellnumbers2d)
         ai4= Sprite.Ai_Sprite(knight,cellNumbers,screen,cellnumbers2d)
+        ai5= Sprite.Ai_Sprite(orcKnight,cellNumbers,screen,cellnumbers2d)
         ai_group=pygame.sprite.Group()
-        ai_group.add(ai1,ai2,ai3,ai4)
+        ai_group.add(ai1,ai2,ai3,ai4,ai5)
         ai1.placeSprite((1,0))
         ai2.placeSprite((5,5))
         ai3.placeSprite((7,10))
         ai4.placeSprite((9,1))
+        ai5.placeSprite((3,4))
         selectedSurf=pygame.transform.scale(selectedSurf,(int(cellnumbers2d[1,1][0])-21,int(cellnumbers2d[1,1][1])-21))
 
         while Game==True:
@@ -107,7 +110,7 @@ while running:
             ai_group.update()
             for z in ai_group.sprites():
                 if z.selected==True:
-                    z.select()
+                    z.select(ai_group)
                     #drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))

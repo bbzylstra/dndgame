@@ -11,7 +11,7 @@ class Ai_Sprite(pygame.sprite.Sprite):
         self.clock = pygame.time.Clock()
         self.cellnumbers=cellnumbers
         self.cellnumbers2d=cellnumbers2d
-        self.image=pygame.image.load(imgpath).convert()
+        self.image=pygame.image.load(imgpath).convert_alpha()
         self.rect=self.image.get_rect()
         self.moveSurf=pygame.Surface((500,50))
         self.moveSurf.convert_alpha()
@@ -35,14 +35,16 @@ class Ai_Sprite(pygame.sprite.Sprite):
                     self.moveUp()
                 else:
                     self.moveDown()
-                pygame.time.wait(500)
-                group.update()
+                pygame.time.wait(200)
                 drawScreen.drawScreen(self.screen,screensize)
                 group.update()
                 pygame.display.update()
         self.selected=False
-    def select(self):
+    def select(self,group):
         self.movecells=[]
+        position=self.squareNumber2d
+        f=0
+        g=False
         for i in range (0,self.movesRemaining+1):
             for z in range (0,self.movesRemaining+1):
                 if self.movesRemaining-(z+i) <0:
@@ -53,7 +55,10 @@ class Ai_Sprite(pygame.sprite.Sprite):
                 self.movecells.append((self.squareNumber2d[0]-ydist,self.squareNumber2d[1]-z))
                 self.movecells.append((self.squareNumber2d[0]-i,self.squareNumber2d[1]+ydist))
                 self.movecells.append((self.squareNumber2d[0]+ydist,self.squareNumber2d[1]-z))
-        self.movecells=set(self.movecells)
+        self.movecells=list(set(self.movecells))
+        for z in self.movecells:
+            if z[0] < 0 or z[1] < 0:
+                del z
         for i in self.cellnumbers2d:
             if i not in self.movecells:
                 drawToScreen.drawToScreen(self.moveSurf,self.screen,i,self.cellnumbers2d)
@@ -62,19 +67,15 @@ class Ai_Sprite(pygame.sprite.Sprite):
         drawToScreen.drawToScreen(self.image,self.screen,self.squareNumber2d,self.cellnumbers2d)
     def moveUp(self):
         self.squareNumber2d=(self.squareNumber2d[0],self.squareNumber2d[1]-1)
-        self.update()
         self.movesRemaining=self.movesRemaining-1
     def moveDown(self):
         self.squareNumber2d=(self.squareNumber2d[0],self.squareNumber2d[1]+1)
-        self.update()
         self.movesRemaining=self.movesRemaining-1
     def moveRight(self):
         self.squareNumber2d=(self.squareNumber2d[0]+1,self.squareNumber2d[1])
-        self.update()
         self.movesRemaining=self.movesRemaining-1
     def moveLeft(self):
         self.squareNumber2d=(self.squareNumber2d[0]-1,self.squareNumber2d[1])
-        self.update()
         self.movesRemaining=self.movesRemaining-1
     def newTurn(self):
         self.movesRemaining=self.movedistance
