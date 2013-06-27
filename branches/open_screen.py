@@ -110,7 +110,7 @@ while running:
             ai_group.update()
             for z in ai_group.sprites():
                 if z.selected==True:
-                    z.select(ai_group)
+                    z.select(ai_group,0)
                     #drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))
