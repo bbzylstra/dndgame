@@ -89,20 +89,23 @@ while running:
                 spriteselected=spriteSelected.spriteSelected(cellNumber2d,ai_group)
                 if spriteselected != None:
                     if spriteselected.selected==True:
+                        spriteselected.drawflag=0
                         spriteselected=None
 
                 if spriteselected != None:
                         spriteselected.selected=True
-
                 for i in ai_group.sprites():
                     for z in ai_group.sprites():
                         if i.selected==True and z.selected==True and i != z:
                             i.selected=False
                             z.selected=False
+                            i.drawflag=0
+                            z.drawflag=0
 
                 for v in ai_group.sprites():
                     if v.selected==True and spriteselected==None and cellNumber2d != [-1,-1]:
                         v.moveSprite(cellNumber2d,ai_group)
+                        v.drawflag=0
 
                 print("Cell Number: " + str(cellNumber2d))
                 game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
@@ -111,6 +114,7 @@ while running:
             for z in ai_group.sprites():
                 if z.selected==True:
                     z.select(ai_group,0)
+                    z.drawflag=1
                     #drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
             textBox.fill((0,0,0))
             screen.blit(textBox,(0,screensize[1]-50))

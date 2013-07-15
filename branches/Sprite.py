@@ -19,6 +19,9 @@ class Ai_Sprite(pygame.sprite.Sprite):
         self.moveSurf=pygame.transform.scale(self.moveSurf,(int(self.cellnumbers2d[1,1][0])-21,int(self.cellnumbers2d[1,1][1])-21))
         self.moveSurf.set_alpha(100)
         self.selected=False
+        self.drawflag=0
+        self.movecells=[]
+        self.notmovecells=[]
     def placeSprite(self,(x,y)):
         self.squareNumber2d=(x,y)
         drawToScreen.drawToScreen(self.image,self.screen,self.squareNumber2d,self.cellnumbers2d)
@@ -42,15 +45,16 @@ class Ai_Sprite(pygame.sprite.Sprite):
                 pygame.display.update()
         self.selected=False
     def select(self,group,drawflag):
-        self.movecells=[]
-        self.notmovecells=[]
         position=self.squareNumber2d
         f=0
         g=False
         finder=Astar.Astar(AstarHelper.successors,AstarHelper.heuristic_to_goal)
         path=[]
         moves=0
-        if drawflag==0:
+        helperlist=[]
+        if self.drawflag==0:
+            self.movecells=[]
+            self.notmovecells=[]
             for i in range (0,self.movesRemaining+1):
                 for z in range (0,self.movesRemaining+1):
                     if self.movesRemaining-(z+i) <0:
@@ -73,18 +77,16 @@ class Ai_Sprite(pygame.sprite.Sprite):
                     if i.squareNumber2d==z:
                         self.notmovecells.append(z)
                         del self.movecells[f]
-            for z,i in enumerate(self.movecells):
-                path,moves=finder.compute_path(self.squareNumber2d,i,self.notmovecells,group)
+            for z in self.movecells[-1::-1]:
+                path,moves=finder.compute_path(self.squareNumber2d,z,self.notmovecells,group)
                 if moves==None:
-                    self.movecells=[]
-                if moves > self.movesRemaining:
-                    del self.movecells[z]
-                path=[]
-                moves=0
+                    self.movecells.remove(z)
+                elif moves > self.movesRemaining:
+                    self.movecells.remove(z)
         for i in self.cellnumbers2d:
             if i not in self.movecells:
                 drawToScreen.drawToScreen(self.moveSurf,self.screen,i,self.cellnumbers2d)
-        drawflag=1
+
 
     def update(self):
         drawToScreen.drawToScreen(self.image,self.screen,self.squareNumber2d,self.cellnumbers2d)

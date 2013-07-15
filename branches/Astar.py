@@ -22,8 +22,8 @@ class Astar(object):
         currentNode=startNode
         for i in closed:
             if i.coord==endNode.coord:
-                return 1,None
-        while len(open)<20:
+                return 0,None
+        while len(open)<15:
             closed=list(set(closed))
             for i in self.successors(currentNode.coord,ai_group,notmovecells):
                 for j in open:
@@ -38,7 +38,7 @@ class Astar(object):
             closed.append(currentNode)
             del open[0]
             if len(open)==0:
-                return 1,None
+                return 0,None
             open.sort(key=lambda x: x.h)
             currentNode=open[0]
             if currentNode.coord == endNode.coord:
