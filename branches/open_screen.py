@@ -1,6 +1,6 @@
 __author__ = 'Brad'
 import ctypes
-import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest,Sprite,spriteSelected
+import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest,Sprite,spriteSelected,characterselection
 from decimal import Decimal
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
@@ -45,6 +45,8 @@ while running:
             running=0
         elif (event.pos[0] >=370 and event.pos[0] <=590) and (event.pos[1] >=330 and event.pos[1] <=380) :
             comtest.combatsim(screen)
+        elif(event.pos[0] >=screensize[0]*.3184480234 and event.pos[0] <=screensize[0]*.4595592972) and (event.pos[1] >=screensize[1]*.6184895833 and event.pos[1] <=screensize[1]*.7161458333) :
+            charactercselection.characterSelect(screen)
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
             running = 0
