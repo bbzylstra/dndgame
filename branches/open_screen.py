@@ -1,4 +1,4 @@
-import comtest, pygame,characterselection, ctypes, sys
+import comtest, pygame,characterselection, ctypes, sys,charactercreation
 def openScreen(screen):
     user32 = ctypes.windll.user32
     screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
