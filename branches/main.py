@@ -1,6 +1,6 @@
 __author__ = 'Brad'
 import ctypes
-import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest,Sprite,spriteSelected,characterselection, open_screen
+import pygame,sys,os,drawScreen,detectSquare,drawToScreen,charactercreation,comtest,Sprite,spriteSelected,characterselection, open_screen,game
 from decimal import Decimal
 user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
@@ -32,80 +32,4 @@ spriteselected=''
 name, race, cclass, hp, mana, stamina, stre, agl, inte, cour, dex, conc=characterselection.characterSelect(screen)
 while running:
     open_screen.openScreen(screen)
-    textBox.fill((0,0,0))
-    screen.blit(textBox,(0,screensize[1]-50))
-    pygame.display.update()
-    textBox.fill((0,0,0))
-    game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
-    textBox.blit(game1,(0,0))
-    screen.blit(textBox,(0,screensize[1]-50))
-    x,y,cellNumbers,cellnumbers2d=drawScreen.drawScreen(screen,screensize)
-    ai1= Sprite.Ai_Sprite(swordsman,cellNumbers,screen,cellnumbers2d)
-    ai2= Sprite.Ai_Sprite(mage,cellNumbers,screen,cellnumbers2d)
-    ai3= Sprite.Ai_Sprite(ranger,cellNumbers,screen,cellnumbers2d)
-    ai4= Sprite.Ai_Sprite(knight,cellNumbers,screen,cellnumbers2d)
-    ai5= Sprite.Ai_Sprite(orcKnight,cellNumbers,screen,cellnumbers2d)
-    ai_group=pygame.sprite.Group()
-    ai_group.add(ai1,ai2,ai3,ai4,ai5)
-    ai1.placeSprite((1,0))
-    ai2.placeSprite((5,5))
-    ai3.placeSprite((7,10))
-    ai4.placeSprite((9,1))
-    ai5.placeSprite((3,4))
-    selectedSurf=pygame.transform.scale(selectedSurf,(int(cellnumbers2d[1,1][0])-21,int(cellnumbers2d[1,1][1])-21))
-
-    while True:
-        drawScreen.drawScreen(screen,screensize)
-        event = pygame.event.poll()
-
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                break
-
-        if event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
-            xi,yi=event.pos
-            if xi>screensize[0]/1.2 and yi> screensize[1]/1.1:
-                for z in ai_group.sprites():
-                    z.newTurn()
-            cellNumber,cellNumber2d=detectSquare.detectSquare(x,y,xi,yi,screensize)
-            spriteselected=spriteSelected.spriteSelected(cellNumber2d,ai_group)
-            if spriteselected != None:
-                if spriteselected.selected==True:
-                    spriteselected.drawflag=0
-                    spriteselected=None
-
-            if spriteselected != None:
-                    spriteselected.selected=True
-            for i in ai_group.sprites():
-                for z in ai_group.sprites():
-                    if i.selected==True and z.selected==True and i != z:
-                        i.selected=False
-                        z.selected=False
-                        i.drawflag=0
-                        z.drawflag=0
-
-            for v in ai_group.sprites():
-                if v.selected==True and spriteselected==None and cellNumber2d != [-1,-1]:
-                    v.moveSprite(cellNumber2d,ai_group)
-                    v.drawflag=0
-
-            print("Cell Number: " + str(cellNumber2d))
-            game1 = game_font.render("Cell Number: " + str(cellNumber2d), True, (255,0, 0), (0, 0, 0))
-
-        ai_group.update()
-        for z in ai_group.sprites():
-            if z.selected==True:
-                z.select(ai_group,0)
-                z.drawflag=1
-                #drawToScreen.drawToScreen(selectedSurf,screen,z.squareNumber2d,cellnumbers2d)
-        textBox.fill((0,0,0))
-        screen.blit(textBox,(0,screensize[1]-50))
-        textBox.blit(game1,(0,0))
-        screen.blit(textBox,(0,screensize[1]-50))
-        xi,yi=pygame.mouse.get_pos()
-        game = game_font.render(str(xi)+' '+str(yi), True, (255,0, 0), (0, 0, 0))
-        textBox.blit(game,(0,25))
-        screen.blit(textBox,(0,screensize[1]-50))
-        pygame.display.update()
-        clock.tick(100)
-pygame.quit()
+    game.game(screen)
