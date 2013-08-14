@@ -28,7 +28,7 @@ def characterSelect(screen):
    if len(fileNames) == 0:
        charactercreation.characterCreate(screen)
        
-  while True:
+   while True:
         #write graphical front end here to display the names in fileNames
         #please store the selected file name in a variable called selectedSave, please delete line 24 when done.
         #Screensize is stored in the screensize tuple. Get x from screensize[0] and y from screensize[1]
