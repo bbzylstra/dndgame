@@ -4,6 +4,7 @@ def characterSelect(screen):
    user32 = ctypes.windll.user32
    screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
    screen.fill((0,0,0))
+   
    name = None
    race = None
    cclass = None
@@ -27,10 +28,11 @@ def characterSelect(screen):
    if len(fileNames) == 0:
        charactercreation.characterCreate(screen)
        
-   while True:
+  while True:
         #write graphical front end here to display the names in fileNames
-        #please store the selected file name in a variable called selectedSave
+        #please store the selected file name in a variable called selectedSave, please delete line 24 when done.
         #Screensize is stored in the screensize tuple. Get x from screensize[0] and y from screensize[1]
+        
         f=open(saves_path+selectedSave+"\stats.wagh",'r')
         name = f.readline()
         race = f.readline()
@@ -44,7 +46,9 @@ def characterSelect(screen):
         cour = int(f.readline())
         dex = int(f.readline()) 
         conc = int(f.readline())
+        
         #Write front end to display the stats read from the file
+        
         event=pygame.event.poll()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
