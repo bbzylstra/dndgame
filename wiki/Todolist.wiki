@@ -57,3 +57,5 @@ Ideas:
 9.1. AI needs to be created and tested fully using all different types of sprites.
 
 1. Code needs to be refactored to remove unused variables and poorly named variables must be re-written.
+
+2. All stats should be imported in as a basics for each class, then on completion of a dungeon/room/whatever a separate method is run "Post-Combat Stat Alteration" that allows us to use some arithmetic functions to not only allow the player to change his stats accordingly but then we use it to write to his character file.
