@@ -52,6 +52,6 @@ def characterSelect(screen):
         event=pygame.event.poll()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
-                break
+                return name, race, cclass, hp, mana, stamina, stre, agl, inte, cour, dex, conc
         
         
