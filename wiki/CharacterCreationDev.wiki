@@ -1,0 +1,8 @@
+#summary Development of the Creation of Character Files/Functions.
+
+= Introduction =
+
+
+
+
+= Details =
