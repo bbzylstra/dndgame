@@ -18,12 +18,12 @@ Expectations:
 **Character Selection Screen**
 
 **Game**
-***Game Selection***
-***Game Simulation***
+
+-***Game Selection***
+
+-***Game Simulation***
 
 **Options and Settings**
-
-
 
 
 
