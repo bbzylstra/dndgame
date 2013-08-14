@@ -29,7 +29,7 @@ game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0
 cellnumbers2d={}
 cellNumber2d=(0,0)
 spriteselected=''
-name, race, cclass, hp, mana, stamina, stre, agl, inte, cour, dex, conc=characterselection.characterSelect(screen)
+attribArray=characterselection.characterSelect(screen)
 while running:
     open_screen.openScreen(screen)
     game.game(screen)
