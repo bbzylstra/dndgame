@@ -5,6 +5,7 @@
 List of ideas and currently under development functions for the code.
 
 = Details =
+
 Currently Under Development:
 1.Combat
 2.Character Selection
