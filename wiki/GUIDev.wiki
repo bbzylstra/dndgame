@@ -11,20 +11,18 @@ Expectations:
 
 -Developer Splash Screen and Game Specific Splash Screen
 
-*Main Screen*
+[Main Screen]
 
-**Character Creation Screen**
+{Character Creation Screen}
 
-**Character Selection Screen**
+{Character Selection Screen}
 
-**Game**
+{Game}
 
--***Game Selection***
+-{Game Selection}
 
--***Game Simulation***
+-{Game Simulation}
 
-**Options and Settings**
-
-
+{Options and Settings}
 
 
