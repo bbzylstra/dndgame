@@ -1,9 +1,0 @@
-#summary Client creation.
-
-= Introduction =
-
-
-
-
-= Details =
-
