@@ -11,7 +11,9 @@ def characterCreate(screen):
        pass
    pygame.display.update()
    screen.fill()
-   event=pygame.event.poll()
+   while running:
+        xi,yi=screen.get_size()
+        event=pygame.event.poll()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
                 break
