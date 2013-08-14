@@ -29,6 +29,7 @@ game1 = game_font.render("Cell Number: " + str(cellNumber), True, (255,0, 0), (0
 cellnumbers2d={}
 cellNumber2d=(0,0)
 spriteselected=''
+characterselection.characterSelect(screen)
 while running:
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
@@ -46,7 +47,7 @@ while running:
         elif (event.pos[0] >=370 and event.pos[0] <=590) and (event.pos[1] >=330 and event.pos[1] <=380) :
             comtest.combatsim(screen)
         elif(event.pos[0] >=screensize[0]*.3184480234 and event.pos[0] <=screensize[0]*.4595592972) and (event.pos[1] >=screensize[1]*.6184895833 and event.pos[1] <=screensize[1]*.7161458333) :
-            charactercselection.characterSelect(screen)
+            characterselection.characterSelect(screen)
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_ESCAPE:
             running = 0
