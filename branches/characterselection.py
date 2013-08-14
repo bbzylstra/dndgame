@@ -49,7 +49,7 @@ def characterSelect(screen):
         xi,yi=screen.get_size()
         z=(yi/6)-(yi/7)
         GraphicInput.display_message(screen,'name = ',name(.5,0))
-        GraphicInput.display_message(screen,'hp = ',hp,(.5,(z)*1))
+        GraphicInput.display_message(screen,'hp = ',hp(.5,(z)*1))
         GraphicInput.display_message(screen,'mana = ',mana(.5,((z)*2)))
         GraphicInput.display_message(screen,'stamina = ',stamina(.5,((z)*3)))
         GraphicInput.display_message(screen,'strength = ',stre(.5,((z)*4)))
