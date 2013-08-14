@@ -18,7 +18,7 @@ Currently Under Development:
 
 5.Sprites
 
-6.Character Creation (ascetics)
+6.Character Creation (aesthetics)
 
 7.Server
 
