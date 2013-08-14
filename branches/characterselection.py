@@ -18,15 +18,14 @@ def characterSelect(screen):
    dex = None 
    conc = None
    item = None
-
-   current_directory=os.getcwd()
-   saves_path=current_directory+'/saves/'
-   fileNames=os.listdir(saves_path)
-   selectedSave=GraphicInput.ask(screen,'CharName: ',(300,300))
-   GraphicInput.display_message(screen, "names"+str(fileNames), (600, 600))
-   
-   if len(fileNames) == 0:
-       charactercreation.characterCreate(screen)
+   try:
+       current_directory=os.getcwd()
+       saves_path=current_directory+'/saves/'
+       fileNames=os.listdir(saves_path)
+       selectedSave=GraphicInput.ask(screen,'CharName: ',(300,300))
+       GraphicInput.display_message(screen, "names"+str(fileNames), (600, 600))
+   except:
+        charactercreation.characterCreate(screen)
        
    while True:
         #write graphical front end here to display the names in fileNames
