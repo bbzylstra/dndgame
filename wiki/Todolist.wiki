@@ -7,14 +7,23 @@ List of ideas and currently under development functions for the code.
 = Details =
 
 Currently Under Development:
+
 1.Combat
+
 2.Character Selection
+
 3.GUI
+
 4.Open Screen (Rewritten, more modular)
+
 5.Sprites
+
 6.Character Creation (ascetics)
+
 7.Server
+
 8.Clients
+
 9.AI
 
 Ideas:
