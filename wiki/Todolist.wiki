@@ -27,7 +27,9 @@ Currently Under Development:
 9.AI
 
 Ideas:
+
 1.1. Revamp the combat system, add in GUI, add in more depth to class specifics
+
 1.2. All characters need to be balanced.
 
 2.1. Character Selection needs to be created and be graphical.
