@@ -26,6 +26,11 @@ def characterSelect(screen):
        GraphicInput.display_message(screen, "names"+str(fileNames), (600, 600))
    except:
         charactercreation.characterCreate(screen)
+        current_directory=os.getcwd()
+        saves_path=current_directory+'/saves/'
+        fileNames=os.listdir(saves_path)
+        selectedSave=GraphicInput.ask(screen,'CharName: ',(300,300))
+        GraphicInput.display_message(screen, "names"+str(fileNames), (600, 600))
        
    while True:
         #write graphical front end here to display the names in fileNames
@@ -45,32 +50,29 @@ def characterSelect(screen):
         cour = int(f.readline())
         dex = int(f.readline()) 
         conc = int(f.readline())
+        break
 
-        while True:
-            screen.fill((0,0,0))
-            xi, yi = screen.get_size()
-            z = (yi/6)-(yi/7)
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
-                break
-            GraphicInput.display_message(screen,'name = '+name,(screensize[0]*.5,screensize[1]*0))
-            GraphicInput.display_message(screen,'hp = '+str(hp),(.5,(z)*1))
-            GraphicInput.display_message(screen,'mana = '+str(mana),(.5,((z)*2)))
-            GraphicInput.display_message(screen,'stamina = '+str(stamina),(.5,((z)*3)))
-            GraphicInput.display_message(screen,'strength = '+str(stre),(.5,((z)*4)))
-            GraphicInput.display_message(screen,'agility = '+str(agl),(.5,((z))*5))
-            GraphicInput.display_message(screen,'intelligence = '+str(inte),(.5,(z)*6))
-            GraphicInput.display_message(screen,'courage = '+str(cour),(.5,((z)*7)))
-            GraphicInput.display_message(screen,'dexterity = '+str(dex),(.5,((z)*8)))
-            GraphicInput.display_message(screen,'concentration = '+str(conc),(.5,(z)*9))
-            GraphicInput.display_message(screen,'race = '+race,(.5,(z)*10))
-            GraphicInput.display_message(screen,'class = '+cclass,(.5,(z)*11))
-        #Write front end to display the stats read from the file
-
-
-        event=pygame.event.poll()
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
-                return name, race, cclass, hp, mana, stamina, stre, agl, inte, cour, dex, conc
-        
+   screen.fill((0,0,0))
+   xi, yi = screen.get_size()
+   z = (yi/6)-(yi/7)
+   while True:
+       event = pygame.event.poll()
+       if event.type == pygame.KEYDOWN:
+           if event.key == pygame.K_ESCAPE or pygame.K_RETURN:
+               return name, race, cclass, hp, mana, stamina, stre, agl, inte, cour, dex, conc
+               break
+       GraphicInput.display_message(screen,'name = '+name,(screensize[0]*.5,screensize[1]*0))
+       GraphicInput.display_message(screen,'hp = '+str(hp),(.5,(z)*1))
+       GraphicInput.display_message(screen,'mana = '+str(mana),(.5,((z)*2)))
+       GraphicInput.display_message(screen,'stamina = '+str(stamina),(.5,((z)*3)))
+       GraphicInput.display_message(screen,'strength = '+str(stre),(.5,((z)*4)))
+       GraphicInput.display_message(screen,'agility = '+str(agl),(.5,((z))*5))
+       GraphicInput.display_message(screen,'intelligence = '+str(inte),(.5,(z)*6))
+       GraphicInput.display_message(screen,'courage = '+str(cour),(.5,((z)*7)))
+       GraphicInput.display_message(screen,'dexterity = '+str(dex),(.5,((z)*8)))
+       GraphicInput.display_message(screen,'concentration = '+str(conc),(.5,(z)*9))
+       GraphicInput.display_message(screen,'race = '+race,(.5,(z)*10))
+       GraphicInput.display_message(screen,'class = '+cclass,(.5,(z)*11))
+       #Write front end to display the stats read from the file
+   return name, race, cclass, hp, mana, stamina, stre, agl, inte, cour, dex, conc      
         

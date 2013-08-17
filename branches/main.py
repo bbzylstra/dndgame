@@ -6,7 +6,6 @@ user32 = ctypes.windll.user32
 screensize = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
 pygame.init()
 screen=pygame.display.set_mode((screensize),pygame.FULLSCREEN)
-running =1
 bgcolor = 0, 0, 0
 LEFT=1
 clock = pygame.time.Clock()
@@ -30,6 +29,6 @@ cellnumbers2d={}
 cellNumber2d=(0,0)
 spriteselected=''
 attribArray=characterselection.characterSelect(screen)
-while running:
+while 1:
     open_screen.openScreen(screen)
     game.game(screen)
