@@ -1,0 +1,228 @@
+Module:
+    Astar.py
+Object?:
+    Yes
+Public Methods:
+__init__(self,successors,heuristic_to_goal,move_cost=1):
+    successors- method that finds successive cells to expand for Astar, can be found in the AstarHelper.py class
+    Heurisitic_to_goal- method that finds how far away the current cell is from the goal. Can be found in the AstarHelper.py class
+    move_cost- how much movement cost per move. Default is set to one.
+compute_path(self,start,end,notmovecells,ai_group):
+    start- 2d point that tells astar where to start
+    end- 2d point that tells astar where to end
+    notmovecells- array of cells that tells astar where it cannot move(typically is the array of cells that are out of movement range, see sprite.py for implementation)
+    ai_group- an ai_group of all the sprites currently on the playing field. This should be the upper-most group of sprites.
+
+    returns:
+        path,moves
+        path- list of ordered cells to get to end position
+        moves- number of moves to get to the location
+Usage:
+    Use astar to calculate the path for a sprite to move from one location to another or how long it would take a sprite to get from point a to b.
+
+
+Module:
+    AstarHelper.py
+Object?:
+    No
+Public Methods:
+successors(point,group,notmovecells):
+    point- point that you wish to find successors to.
+    group- top level ai_group
+    notmovecells- cells that are unavailable to move to.
+    returns:
+        list of cells that can be expanded by astar.
+heuristic_to_goal(point,goal):
+    point- point you wish to calculate hueristic for.
+    goal- end point for astar.
+    returns:
+        distance to goal from point.
+Usage:
+    Only use astar helper if you are making changes to the astar program. Otherwise it is useless.
+
+
+Module:
+    charactercreation.py
+Object?:
+    No
+Public Methods:
+characterCreate(screen):
+    screen- The current pygame screen
+Usage- used to create charecters in the openscreen
+
+
+Module:
+    comtest.py
+Object?:
+    No
+Public Methods:
+    None
+Usage:
+    Work in progress, eventually all combat will be handled here.
+
+
+Module:
+    comtestauto.py
+Object?:
+    No
+Public Methods:
+    None
+Usage:
+    Combat simulator to check balance of units
+
+
+Module:
+    createEnemy.py
+Object?:
+    No
+Public Methods:
+enemycreateGroup(numberOfEnemies,typeOfEnemy):
+    numberOfEnemies- amount of enemies to create.
+    typeOfEnemy- tuple containing race and class
+    returns:
+        should return group of enemies and placed on the screen
+Usage:
+    Incomplete. This should be the place where enemies are created when entering a room. Should create different types of enemies and automatically place them in a group.
+
+
+Module:
+    detectSquare.py
+Object?:
+    No
+Public Methods:
+    detectSquare(x,y,xi,yi,screensize):
+    x- x array of lines drawn to screen
+    y- y array of lines drawn to screen
+    xi- x coord of click on screen
+    yi- y coord of click on screen
+    returns:
+        cellnumber,cellnumber2d
+        cellnumber- old usage of cellnumber, do not use
+        cellnumber2d- 2d point of what cell was clicked. Cell 0,0 is top left cell.
+Usage:
+    Low level method to convert pixel values into cell numbers.
+
+
+Module:
+    drawScreen.py
+Object?:
+    No
+Public Methods:
+drawScreen(screen,screensize):
+    screen- current drawing screen
+    screensize- total pixel size of screen(Ex 1080x720)
+    returns:
+        x,y,cellNumbers,cellNumbers2d
+        x- array of x lines top points
+        y- array of y lines left points
+        cellNumbers- outdated, do not use
+        cellNumbers2d- 2d array of top left points of each cell. Cell 0,0 is top left cell.
+Usage:
+    Draws the game board.
+    Important Variables:
+        borderOffset- Offset value in pixels of the gameboard
+        sizex- number of cells in the x direction
+        sizey- number of cells in the y direction
+
+
+Module:
+    drawToScreen.py
+Object?:
+    No
+Public Methods:
+drawToScreen(img,screen,squareNumber2d,cellnumbers2d):
+    img- image to be drawn to screen, is a surface of any size.
+    screen- screen to be drawn to.
+    squareNumber2d- square to draw to
+    cellnumbers2d- 2d array of top left points of each cell. Created in drawScreen.py
+    returns:
+        None
+Usage:
+    Used to draw a image onto a screen. Automatically scales the image to the cell size.
+
+
+Module:
+    enemycreation.py
+Object?:
+Yes, inherits Sprite.py
+Usage:
+    Used to create ai sprites, not finished.
+
+Module:
+    GraphicInput.py
+Object?:
+    No
+Public Methods:
+    ask(screen, question,(x,y)):
+        screen- screen to ask for input on.
+        question- String of what the question is.
+        (x,y)- tuple that contains the point to display the question on the screen.
+        returns:
+            string of data that was entered by user before hitting enter
+Usage:
+    Is used by charectercreation to ask for charecter attributes, but can be used anywhere for user input.
+
+
+Module:
+    moveSprite.py
+Object?:
+    No
+Public Methods:
+    None
+Usage:
+    Old file that was to be used for moving sprites, but was replaced by sprite.py
+
+Module:
+    openscreen.py
+Object?:
+    No
+Public Methods:
+    None
+Usage:
+    This is where everything comes together. Paths are initilized, screens are created, and sprites created. Exterior while loop runs the
+    splash screen, while interior while loop runs the game screen.
+
+
+
+Module:
+    Sprite.py
+Object?:
+    Yes
+Public Methods:
+__init__(self,imgpath,cellnumbers,screen,cellnumbers2d):
+    imgpath- path to image used for this sprite
+    cellnumbers- outdated method of recording cells, just pass cellnumbers in and forget. Could also be fixed, but would be alot of work.
+    screen- screen to draw sprite to.
+    cellnumbers2d-  2d array of top left points of each cell. Created in drawScreen.py
+placeSprite(self,(x,y)):
+    (x,y)- square number to draw sprite to. 0,0 is top left square.
+moveSprite(self,newcellNumber2d,group):
+    newcellNumber2d- square number to move sprite to. 0,0 is top left square.
+    group- top level group of ai sprites.
+select(self,group,drawflag):
+    group- top level group of ai.
+    drawflag- used to determine if grey cells have already been drawn.
+update(self):
+    updates the sprite, call this every loop cycle.
+moveUp,moveDown,moveLeft,moveRight:
+    no longer used, replaced by astar.
+newturn(self):
+    called when new turn is pressed.
+Usage:
+    Use the sprite class to create and modify __player__ sprites. Most methods are self-explainitory, select is used to draw moveable cells when the sprite is
+    clicked on.
+
+Method:
+    spriteSelected.py
+Object?:
+    No
+Public Methods:
+spriteSelected(cellNumber2d,group):
+    cellNumber2d- 2d cell that was clicked on
+    group- sprite group of selectable sprites.
+    returns:
+        This returns the sprite that was selected.
+
+
+
+
