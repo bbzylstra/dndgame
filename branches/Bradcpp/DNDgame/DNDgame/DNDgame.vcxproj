@@ -78,6 +78,7 @@
     <ClCompile Include="main.cpp">
       <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
+    <ClCompile Include="SpriteEdit.cpp" />
     <ClCompile Include="ViewGui.cpp" />
   </ItemGroup>
   <ItemGroup>

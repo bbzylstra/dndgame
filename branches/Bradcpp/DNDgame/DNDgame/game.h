@@ -12,4 +12,5 @@ struct XY{
 		sf::View view;
 };
 XY drawGui(XY mainGUI);
+int selectSprite(XY mainSprites,sf::Vector2f mousePos);
 #endif
