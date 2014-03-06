@@ -1,14 +1,15 @@
-﻿Build started 3/3/2014 8:04:32 PM.
+﻿Build started 3/6/2014 12:18:52 PM.
      1>Project "D:\dndgame\branches\Bradcpp\DNDgame\DNDgame\DNDgame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\dndgame\branches\Bradcpp\TGUI-0.6.1 Visual C++11\TGUI-0.6.1 Visual C++11\include" /I"D:\dndgame\branches\Bradcpp\SFML-2.1-windows-vc11-32bits\SFML-2.1\include" /ZI /nologo /W3 /WX- /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ViewGui.cpp
-         ViewGui.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\dndgame\branches\Bradcpp\TGUI-0.6.1 Visual C++11\TGUI-0.6.1 Visual C++11\include" /I"D:\dndgame\branches\Bradcpp\SFML-2.1-windows-vc11-32bits\SFML-2.1\include" /ZI /nologo /W3 /WX- /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt SpriteEdit.cpp
+         SpriteEdit.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\dndgame\branches\Bradcpp\DNDgame\Debug\DNDgame.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\dndgame\branches\Bradcpp\TGUI-0.6.1 Visual C++11\TGUI-0.6.1 Visual C++11\lib\TGUI" /LIBPATH:"D:\dndgame\branches\Bradcpp\SFML-2.1-windows-vc11-32bits\SFML-2.1\lib" "sfml-graphics-s-d.lib" "sfml-system-s-d.lib" "sfml-window-s-d.lib" "tgui-s-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\dndgame\branches\Bradcpp\DNDgame\Debug\DNDgame.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\dndgame\branches\Bradcpp\DNDgame\Debug\DNDgame.lib" /MACHINE:X86 Debug\main.obj
+         Debug\SpriteEdit.obj
          Debug\ViewGui.obj
          DNDgame.vcxproj -> D:\dndgame\branches\Bradcpp\DNDgame\Debug\DNDgame.exe
      1>Done Building Project "D:\dndgame\branches\Bradcpp\DNDgame\DNDgame\DNDgame.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.48
+Time Elapsed 00:00:01.42
