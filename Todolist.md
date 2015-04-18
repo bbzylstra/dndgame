@@ -1,0 +1,61 @@
+# Introduction #
+
+List of ideas and currently under development functions for the code.
+
+# Details #
+
+Currently Under Development:
+
+1.Combat
+
+2.Character Selection
+
+3.GUI
+
+4.Open Screen (Rewritten, more modular)
+
+5.Sprites
+
+6.Character Creation (aesthetics)
+
+7.Server
+
+8.Clients
+
+9.AI
+
+Ideas:
+
+1.1. Revamp the combat system, add in GUI, add in more depth to class specifics
+
+1.2. All characters need to be balanced.
+
+2.1. Character Selection needs to be created and be graphical.
+
+3.1. Actually have a GUI not black screens with red text! :D
+
+4.1. Open Screen needs to be re-written. Instead of using a while loop to exit from the splash screen, it should run a different game program and exit.
+
+5.1. Sprites need graphical elements displaying stats and changes to stats during combat, movement and such.
+
+5.2. More Sprites need to be added, including AI sprites.
+
+5.3. Need to create two separate sprite groups, ai\_group and player\_group. Need master\_group to hold all sprites as well.
+
+6.1. Character Creation should be graphical, possibly clickable objects instead of typing, and a display of what the sprite looks like.
+
+7.1. Server needs to be created(fedora).
+
+7.2. Need to figure out what port it will run on, how clients to connect, what type of server to use, and how to set up database.
+
+8.1. Clients need to be created that run using information generated on the server instead of locally.
+
+8.2. Have to figure out what data the server and client need to communicate.
+
+9.1. AI needs to be created and tested fully using all different types of sprites.
+
+1. Code needs to be refactored to remove unused variables and poorly named variables must be re-written.
+
+2. All stats should be imported in as a basics for each class, then on completion of a dungeon/room/whatever a separate method is run "Post-Combat Stat Alteration" that allows us to use some arithmetic functions to not only allow the player to change his stats accordingly but then we use it to write to his character file.
+
+3. Turn ends after movement, max movement squares dont need to be used.

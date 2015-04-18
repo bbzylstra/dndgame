@@ -1,0 +1,24 @@
+# Introduction #
+
+
+
+
+# Details #
+
+Expectations:
+
+-Developer Splash Screen and Game Specific Splash Screen
+
+Main Screen
+
+Character Creation Screen
+
+Character Selection Screen
+
+Game
+
+-Game Selection
+
+-Game Simulation
+
+Options and Settings

@@ -1,0 +1,1 @@
+A game revolving around the progression of a party of 5 heroes through different dungeon like levels, aimed at testing their ability to work as a unit as to successfully clear each dungeon. Gear, stats and other such character attributes will be awarded upon completion of each dungeon, along with the ability to play more dungeons.
